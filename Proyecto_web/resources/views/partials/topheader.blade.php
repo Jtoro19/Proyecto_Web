@@ -15,7 +15,7 @@
                         <img src="{{ asset('images/profile.png') }}" alt="Perfil" class="dropdown-icon">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Cerrar sesión</a>

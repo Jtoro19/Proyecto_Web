@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    @include('partials.topheadernp')
+    @include('partials.topheader')
 
     <div class="profile-container">
         <div class="d-flex align-items-center">
