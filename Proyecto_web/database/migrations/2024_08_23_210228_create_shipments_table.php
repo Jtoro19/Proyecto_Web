@@ -15,6 +15,19 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users');
+            $table->unsignedBigInteger('adressID');
+            $table->foreign('adressID')->references('id')->on('adresses');
+            $table->unsignedBigInteger('receiptID');
+            $table->foreign('receiptID')->references('id')->on('receipts');
+            
+            $table->date('departureDate');
+            $table->date('deliveryDate')->nullable();
+            $table->string('status');
+            $table->integer('cost');
+            $table->string('recipientName');
             $table->timestamps();
         });
     }

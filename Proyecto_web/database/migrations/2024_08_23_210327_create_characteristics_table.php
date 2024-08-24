@@ -15,6 +15,11 @@ class CreateCharacteristicsTable extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table) {
             $table->id();
+            
+            $table->unsignedBigInteger('productID');
+            $table->foreign('productID')->references('id')->on('products');
+
+            $table->string('characteristicName');
             $table->timestamps();
         });
     }
