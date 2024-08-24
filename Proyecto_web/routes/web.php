@@ -37,8 +37,22 @@ Route::get('/perfil', function() {
     return view('/perfil');
 });
 
-Route::get('/producto', function() {
-    return view('/producto');
+Route::get('/producto_compra', function() {
+    return view('/producto_compra');
 });
 
+Route::get('/compra', function() {
+    return view('/compra');
+});
 
+Route::get('/envio', function() {
+    return view('/envio');
+});
+
+Route::get('/index_producto', function() {
+    return view('/index_producto');
+});
+
+Route::get('/index_usuario', function() {
+    return view('/index_usuario');
+});
