@@ -37,3 +37,8 @@ Route::get('/perfil', function() {
     return view('/perfil');
 });
 
+Route::get('/producto', function() {
+    return view('/producto');
+});
+
+

@@ -2,7 +2,7 @@
     <h1 class="text-center mb-4">Catálogo de Productos</h1>
 
         <!-- Categoría: Computadores -->
-        <h2 class="mb-4">Computadores</h2>
+        <h2 id="compu_section" class="mb-4">Computadores</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Producto 1: Computador 1 -->
             <div class="col">
@@ -96,7 +96,7 @@
         </div>
 
         <!-- Categoría: Celulares -->
-        <h2 class="my-4">Celulares</h2>
+        <h2 id="cellphone_section"class="my-4">Celulares</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Producto 1: Celular 1 -->
             <div class="col">
@@ -189,7 +189,7 @@
             </div>
         </div>
         <!-- Categoría: Gadgets -->
-        <h2 class="my-4">Gadgets</h2>
+        <h2 id="gadgets_section" class="my-4">Gadgets</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Gadget 1 -->
             <div class="col">

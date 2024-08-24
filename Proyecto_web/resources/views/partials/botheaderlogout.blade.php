@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/iniciologin">Comprar</a>
-            <a class="navbar-brand" href="#">Vender</a>
+            <a class="navbar-brand" href="/login">Comprar</a>
+            <a class="navbar-brand" href="/login">Vender</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>

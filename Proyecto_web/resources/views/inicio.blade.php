@@ -10,7 +10,7 @@
 <body>
 
     @include('partials\topheaderlogout')
-    @include('partials.botheader')
+    @include('partials.botheaderlogout')
     @include('partials.catalog_partial')
     @include('partials.footer')
 
