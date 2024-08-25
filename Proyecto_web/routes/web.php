@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,9 @@ Route::get('/index_producto', function() {
 Route::get('/index_usuario', function() {
     return view('/index_usuario');
 });
+
+
+Route::resource('index_usuario', UsersController::class);
+Route::get('/index_usuario', [UsersController::class, 'index'])->name('users.index');
+
+Route::post('/index_usuario', [UsersController::class, 'store'])->name('users.store');

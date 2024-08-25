@@ -22,82 +22,32 @@
                         <th scope="col">Código del Usuario</th>
                         <th scope="col">Rol</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Nombre de Usuario</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Número de Teléfono</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <tr>
-                        <td>#U001</td>
-                        <td>1</td>
-                        <td>Juan Pérez</td>
-                        <td>juan.perez@example.com</td>
-                        <td>jperez</td>
-                        <td>+57 300 123 4567</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Borrar</a>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>#U002</td>
-                        <td>2</td>
-                        <td>María Gómez</td>
-                        <td>maria.gomez@example.com</td>
-                        <td>mgomez</td>
-                        <td>+57 310 987 6543</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Borrar</a>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>#U003</td>
-                        <td>3</td>
-                        <td>Carlos Rodríguez</td>
-                        <td>carlos.rodriguez@example.com</td>
-                        <td>crodriguez</td>
-                        <td>+57 320 654 3210</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Borrar</a>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>#U004</td>
-                        <td>1</td>
-                        <td>Ana Martínez</td>
-                        <td>ana.martinez@example.com</td>
-                        <td>amartinez</td>
-                        <td>+57 301 555 1234</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Borrar</a>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>#U005</td>
-                        <td>1</td>
-                        <td>Pedro Sánchez</td>
-                        <td>pedro.sanchez@example.com</td>
-                        <td>psanchez</td>
-                        <td>+57 312 666 7890</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Borrar</a>
-                        </td>
-                    </tr>
+                @foreach($Users as $user)
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->roleID}}</td>
+                    <td>{{$user->userName}}</td>
+                    <td>{{$user->nickname}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->phoneNumber}}</td>
+                    <td>
+                        <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
+                        <form method="POST" action="{{route('index_usuario.destroy', $user->id)}}" style="display: inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
