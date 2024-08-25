@@ -18,8 +18,8 @@ class CreateShipmentsTable extends Migration
 
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users');
-            $table->unsignedBigInteger('adressID');
-            $table->foreign('adressID')->references('id')->on('adresses');
+            $table->unsignedBigInteger('addressID');
+            $table->foreign('addressID')->references('id')->on('addresses');
             $table->unsignedBigInteger('receiptID');
             $table->foreign('receiptID')->references('id')->on('receipts');
             

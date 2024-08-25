@@ -3,83 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Characteristics;
+use App\Models\Characteristic;
 
 class CharacteristicsCotroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $characteristics = Characteristic::all();
+        return view('characteristics.index', ['characteristics' => $characteristics]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $characteristic = new Characteristic();
+        $characteristic->productID = $request->productID;
+        $characteristic->characteristicName = $request->characteristicName;
+        $characteristic->save();
+        return redirect()->route('characteristics.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $characteristic = Characteristic::find($id);
+        return view('characteristics.edit', ['characteristic' => $characteristic]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $characteristic = Characteristic::find($id);
+        //$characteristic->productID = $request->productID;
+        $characteristic->characteristicName = $request->characteristicName;
+        $characteristic->save();
+        return redirect()->route('characteristics.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $characteristic = Characteristic::find($id);
+        $characteristic->delete();
+        return redirect()->route('');
     }
 }
