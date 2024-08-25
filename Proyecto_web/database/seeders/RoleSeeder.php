@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
             'roleName' => 'administrador',
             'label' => 'admin',
             'description' => 'admin',
+            'able'=> '1'
         ]);
 
         DB::table('roles')->insert([
@@ -26,6 +27,7 @@ class RoleSeeder extends Seeder
             'roleName' => 'comprador',
             'label' => 'buyer',
             'description' => 'buyer',
+            'able'=> '1'
         ]);
 
         DB::table('roles')->insert([
@@ -33,6 +35,7 @@ class RoleSeeder extends Seeder
             'roleName' => 'vendedor',
             'label' => 'seller',
             'description' => 'seller',
+            'able'=> '1'
         ]);
     }
 }

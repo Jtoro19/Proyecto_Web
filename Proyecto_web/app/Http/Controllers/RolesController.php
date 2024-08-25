@@ -25,6 +25,7 @@ class RolesController extends Controller
         $role->roleName = $request->roleName;
         $role->label = $request->label;
         $role->description = $request->description;
+        $role->able=1;
         $role->save();
         return redirect()->route('roles.index');
     }
@@ -53,7 +54,8 @@ class RolesController extends Controller
     public function destroy($id)
     {
         $role = Role::find($id);
-        $role->delete();
+        $role->able=0;
+        $role->save();
         return redirect()->route('');
     }
 }

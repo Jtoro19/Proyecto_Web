@@ -28,6 +28,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->phoneNumber = $request->phoneNumber;
+        $user->able=1;
         $user->save();
         return redirect()->route('users.index');
     }
@@ -59,7 +60,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->delete();
+        $user->able=0;
+        $user->save();
         return redirect()->route('users.index');
     }
 }

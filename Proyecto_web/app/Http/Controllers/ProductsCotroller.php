@@ -27,6 +27,7 @@ class ProductsCotroller extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
+        $product->able = 1;
         $product->save();
         return redirect()->route('products.index');
     }
@@ -57,7 +58,8 @@ class ProductsCotroller extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
+        $product->able=0;
+        $product->save();
         return redirect()->route('');
     }
 }
