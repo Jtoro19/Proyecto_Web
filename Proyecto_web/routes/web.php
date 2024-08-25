@@ -2,17 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AddressessController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CharacteristicsController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ReceiptsController;
+use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\ShipmentsController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('/inicio');
@@ -38,8 +37,8 @@ Route::get('/perfil', function() {
     return view('/perfil');
 });
 
-Route::get('/producto_compra', function() {
-    return view('/producto_compra');
+Route::get('/purchaseProduct', function() {
+    return view('/products/purchaseProduct');
 });
 
 Route::get('/compra', function() {
@@ -50,16 +49,22 @@ Route::get('/envio', function() {
     return view('/envio');
 });
 
-Route::get('/index_producto', function() {
-    return view('/index_producto');
-});
-
-Route::get('/index_usuario', function() {
-    return view('/index_usuario');
+Route::get('/indexProduct', function() {
+    return view('/products/indexProduct');
 });
 
 
-Route::resource('index_usuario', UsersController::class);
-Route::get('/index_usuario', [UsersController::class, 'index'])->name('users.index');
+Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+Route::get('users/editUser/{id}',[UsersController::class,'edit'])->name('users.edit');
+Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 
-Route::post('/index_usuario', [UsersController::class, 'store'])->name('users.store');
+
+
+
+
+
+
+
+
+

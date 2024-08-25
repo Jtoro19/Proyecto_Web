@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
 
-                @foreach($Users as $user)
+                @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->roleID}}</td>
@@ -39,8 +39,8 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->phoneNumber}}</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                        <form method="POST" action="{{route('index_usuario.destroy', $user->id)}}" style="display: inline">
+                        <a href="{{ route('users.edit', $user) }}" class="btn btn-warning btn-sm me-2">Editar</a>
+                        <form method="POST" action="{{route('users.destroy', $user->id)}}" style="display: inline">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>

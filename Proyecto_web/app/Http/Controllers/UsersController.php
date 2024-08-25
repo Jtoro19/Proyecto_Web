@@ -10,8 +10,8 @@ class UsersController extends Controller
 
     public function index()
     {
-        $Users = User::all();
-        return view('index_usuario', ['Users' => $Users]);
+        $users = User::all();
+        return view('users.index', ['users' => $users]);
     }
 
     public function create()
@@ -21,15 +21,15 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $User = new User();
-        $User->roleID = $request->roleID;
-        $User->userName = $request->userName;
-        $User->nickname = $request->nickname;
-        $User->email = $request->email;
-        $User->password = $request->password;
-        $User->phoneNumber = $request->phoneNumber;
-        $User->save();
-        return redirect()->route('Users.index');
+        $user = new User();
+        $user->roleID = $request->roleID;
+        $user->userName = $request->userName;
+        $user->nickname = $request->nickname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->route('users.index');
     }
 
     public function show($id)
@@ -39,27 +39,27 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $User = User::find($id);
-        return view('Users.edit', ['User' => $User]);
+        $user = User::find($id);
+        return view('user.edit', ['user' => $user]);
     }
 
     public function update(Request $request, $id)
     {
-        $User = User::find($id);
+        $user = user::find($id);
         //$User->roleID = $request->roleID;
         //$User->userName = $request->userName;
-        $User->nickname = $request->nickname;
-        $User->email = $request->email;
-        $User->password = $request->password;
+        $user->nickname = $request->nickname;
+        $user->email = $request->email;
+        $user->password = $request->password;
         //$User->phoneNumber = $request->phoneNumber;
-        $User->save();
-        return redirect()->route('Users.index');
+        $user->save();
+        return redirect()->route('users.index');
     }
 
     public function destroy($id)
     {
-        $User = User::find($id);
-        $User->delete();
-        return redirect()->route('');
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 }
