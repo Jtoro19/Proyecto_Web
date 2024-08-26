@@ -18,6 +18,7 @@ class AddressSeeder extends Seeder
             'userID' => '3',
             'addressName' => 'Calle 123 # 45-67',
             'information' => 'Casa de dos pisos',
+            'able' => '1'
         ]);
     }
 }

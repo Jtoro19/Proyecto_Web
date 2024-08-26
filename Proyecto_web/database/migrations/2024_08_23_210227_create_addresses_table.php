@@ -21,6 +21,7 @@ class CreateAddressesTable extends Migration
 
             $table->string('addressName');
             $table->string('information');
+            $table->boolean('able');
             $table->timestamps();
         });
     }

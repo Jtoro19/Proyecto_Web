@@ -24,6 +24,7 @@ class AddressesController extends Controller
         $address->userID = $request->userID;
         $address->addressName = $request->addressName;
         $address->information = $request->information;
+        $address->able=1;
         $address->save();
         return redirect()->route('addresses.index');
     }
@@ -52,7 +53,8 @@ class AddressesController extends Controller
     public function destroy($id)
     {
         $address = Address::find($id);
-        $address->delete();
-        return redirect()->route('');
+        $address->able=0;
+        $address->save();
+        return redirect()->route('addresses.index');
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\AddressessController;
+use App\Http\Controllers\AddressesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CharacteristicsController;
 use App\Http\Controllers\ItemsController;
@@ -34,8 +34,8 @@ Route::get('/iniciologin', function() {
     return view('/iniciologin');
 });
 
-Route::get('/perfil', function() {
-    return view('/perfil');
+Route::get('/perfil/{id}', function() {
+    return view('/perfil/{id}');
 });
 
 Route::get('/products/purchase', function() {
@@ -62,7 +62,7 @@ Route::get('/addresses/index', function() {
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 Route::get('users/edit/{id}',[UsersController::class,'edit'])->name('users.edit');
-Route::put('users{user}', [UsersController::class, 'update'])->name('users.update');
+Route::put('users/{user}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 
 Route::get('/categories/index', [CategoriesController::class, 'index'])->name('categories.index');
