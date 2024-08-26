@@ -58,6 +58,7 @@ Route::get('/products/info', function() {
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 Route::get('users/edit/{id}',[UsersController::class,'edit'])->name('users.edit');
+Route::put('users{user}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 
 Route::get('/products/index', [ProductsController::class, 'index'])->name('products.index');
@@ -69,4 +70,5 @@ Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('p
 Route::get('/addresses/index', [AddressesController::class, 'index'])->name('addresses.index');
 Route::post('/addresses', [AddressesController::class, 'store'])->name('addresses.store');
 Route::get('addresses/edit/{id}',[AddressesController::class,'edit'])->name('addresses.edit');
+Route::put('addresses/{address}', [AddressesController::class, 'update'])->name('addresses.update');
 Route::delete('/addresses/{id}',[AddressesController::class,'destroy'])->name('addresses.destroy');

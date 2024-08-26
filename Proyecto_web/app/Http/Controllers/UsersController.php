@@ -41,18 +41,18 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user.edit', ['user' => $user]);
+        return view('users.edit', ['user' => $user]);
     }
 
     public function update(Request $request, $id)
     {
         $user = user::find($id);
         //$User->roleID = $request->roleID;
-        //$User->userName = $request->userName;
+        $user->userName = $request->userName;
         $user->nickname = $request->nickname;
         $user->email = $request->email;
         $user->password = $request->password;
-        //$User->phoneNumber = $request->phoneNumber;
+        $user->phoneNumber = $request->phoneNumber;
         $user->save();
         return redirect()->route('users.index');
     }
