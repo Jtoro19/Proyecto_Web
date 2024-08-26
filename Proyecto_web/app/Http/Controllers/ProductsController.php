@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 
-class ProductsCotroller extends Controller
+class ProductsController extends Controller
 {
-
     public function index()
     {
         $products = Product::all();
@@ -47,7 +47,7 @@ class ProductsCotroller extends Controller
     {
         $product = Product::find($id);
         //$product->userID = $request->userID;
-        $product->productName = $request->age_restriction;
+        $product->productName = $request->productName;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
@@ -60,6 +60,6 @@ class ProductsCotroller extends Controller
         $product = Product::find($id);
         $product->able=0;
         $product->save();
-        return redirect()->route('');
+        return redirect()->route('products.index');
     }
 }
