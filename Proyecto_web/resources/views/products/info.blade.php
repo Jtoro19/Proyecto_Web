@@ -44,7 +44,7 @@
                 </div>
 
                 @include('partials.comments')
-                @include('partials.reviews')
+                @include('reviews.index')
 
             </div>
         </div>
