@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Category;
 
 class ProductsController extends Controller
 {
@@ -34,10 +35,26 @@ class ProductsController extends Controller
     }
 
     public function showCatalog()
-{
-    $products = Product::all();
-    return view('/iniciologin', compact('products'));
-}
+    {
+    $categories = Category::all();
+    $products = Product::all()->groupBy('categID');
+    return view('/iniciologin', compact('categories', 'products'));
+    }
+
+
+    public function showInfo($id)
+    {
+    // Busca el producto por ID
+    $product = Product::find($id);
+
+    // Verifica si el producto existe
+    if (!$product) {
+        return redirect()->route('products.index')->with('error', 'Producto no encontrado');
+    }
+
+    // Pasa el producto a la vista
+    return view('products.info', ['product' => $product]);
+    }   
 
     public function show($id)
     {

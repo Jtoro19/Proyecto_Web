@@ -34,7 +34,7 @@
                             <td>{{$category->id}}</td>
                             <td>{{$category->categoryName}}</td>
                             <td>
-                                <a href="" class="btn btn-warning btn-sm me-2">Editar</a>
+                                <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning btn-sm me-2">Editar</a>
                                 <form method="POST" action="{{route('categories.destroy', $category->id)}}" style="display: inline">
                                     @csrf
                                     @method('DELETE')
@@ -46,35 +46,31 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="container my-5">
-                <h2 class="text-center mb-4">Crear Categoría</h2>
+        </div> <!-- Cierre de table-responsive -->
 
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <form action="{{ route('categories.store') }}" method="POST">
-                            @csrf
-                            
-                            <div class="mb-3">
-                                <label for="categoryName" class="form-label">Nombre de la Categoría</label>
-                                <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Ingresa el nombre de la categoría">
-                            </div>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Crear Categoría</h2>
 
-                            <div class="mb-3">
-                                <label for="description" class="form-label">Descripción</label>
-                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción de la categoría"></textarea>
-                            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="{{ route('categories.store') }}" method="POST">
+                        @csrf
+                        
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Nombre de la Categoría</label>
+                            <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Ingresa el nombre de la categoría">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Crear Categoría</button>
 
-                            <button type="submit" class="btn btn-primary w-100">Crear Categoría</button>
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div> <!-- Cierre de container my-5 -->
 
+    @include('partials.footer')
 
-    @include('partials.footer') <!-- Footer -->
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

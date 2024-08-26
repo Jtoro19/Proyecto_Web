@@ -67,8 +67,8 @@ Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.des
 
 Route::get('/categories/index', [CategoriesController::class, 'index'])->name('categories.index');
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
-##Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
-##Route::put('categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
+Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
+Route::put('categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{id}',[CategoriesController::class,'destroy'])->name('categories.destroy');
 
 Route::get('/products/index', [ProductsController::class, 'index'])->name('products.index');
@@ -77,6 +77,7 @@ Route::post('/products', [ProductsController::class, 'store'])->name('products.s
 Route::get('products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::put('products/{product}', [ProductsController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
+Route::get('/products/info/{id}', [ProductsController::class, 'showInfo'])->name('products.info');
 
 Route::get('/addresses/index', [AddressesController::class, 'index'])->name('addresses.index');
 Route::post('/addresses', [AddressesController::class, 'store'])->name('addresses.store');
