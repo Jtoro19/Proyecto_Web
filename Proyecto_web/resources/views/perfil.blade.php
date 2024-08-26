@@ -46,7 +46,7 @@
                         </ul>
                     </div>
                     <div>
-                        <button href="{{ route('users.edit', $user) }}" class="btn btn-primary">Gestionar Direcciones</button>
+                        <button class="btn btn-primary">Gestionar Direcciones</button>
                     </div>
                 </div>
             </div>

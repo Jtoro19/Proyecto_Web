@@ -34,8 +34,8 @@ Route::get('/iniciologin', function() {
     return view('/iniciologin');
 });
 
-Route::get('/perfil/{id}', function() {
-    return view('/perfil/{id}');
+Route::get('/perfil', function() {
+    return view('/perfil');
 });
 
 Route::get('/products/purchase', function() {
