@@ -37,7 +37,7 @@ Route::get('/perfil', function() {
     return view('/perfil');
 });
 
-Route::get('/purchase', function() {
+Route::get('/products/purchase', function() {
     return view('/products/purchase');
 });
 
@@ -49,8 +49,12 @@ Route::get('/envio', function() {
     return view('/envio');
 });
 
-Route::get('/index', function() {
+Route::get('/products/index', function() {
     return view('/products/index');
+});
+
+Route::get('/products/info', function() {
+    return view('/products/info');
 });
 
 
