@@ -27,43 +27,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>USR001</td>
-                        <td>Casa Principal</td>
-                        <td>Calle 123, Barrio Centro, Ciudad</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <form method="POST" action="#" style="display: inline">
-                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>USR002</td>
-                        <td>Oficina</td>
-                        <td>Avenida 456, Edificio X, Oficina 12</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <form method="POST" action="#" style="display: inline">
-                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>USR003</td>
-                        <td>Casa de Vacaciones</td>
-                        <td>Carretera 789, Playa Sol, Provincia</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <form method="POST" action="#" style="display: inline">
-                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
+                    @foreach($addresses as $address)
+                        @if($user->able)
+                            <tr>
+                                <td>{{$address->addressName}}</td>
+                                <td>{{$address->information}}</td>
+                                <td>
+                                    <a href="{{route('addresses.edit',$address)}}" class="btn btn-warning btn-sm me-2">Editar</a>
+                                    <form method="POST" action="{{route('addresses.destroy', $address->id)}}" style="display: inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    @endif
+                @foreach($users as $user)
             </table>
         </div>
 
