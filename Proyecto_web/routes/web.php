@@ -54,6 +54,10 @@ Route::get('/products/info', function() {
     return view('/products/info');
 });
 
+Route::get('/categories/index', function() {
+    return view('/categories/index');
+});
+
 
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
@@ -62,6 +66,7 @@ Route::put('users{user}', [UsersController::class, 'update'])->name('users.updat
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 
 Route::get('/products/index', [ProductsController::class, 'index'])->name('products.index');
+Route::get('/iniciologin', [ProductsController::class, 'showCatalog'])->name('iniciologin');
 Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
 Route::get('products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::put('products/{product}', [ProductsController::class, 'update'])->name('products.update');

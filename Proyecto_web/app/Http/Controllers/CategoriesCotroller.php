@@ -22,7 +22,6 @@ class CategoriesCotroller extends Controller
     public function store(Request $request)
     {
         $category = new Category();
-        $category->productID = $request->productID;
         $category->categoryName = $request->categoryName;
         $category->save();
         return redirect()->route('categories.index');
@@ -42,7 +41,6 @@ class CategoriesCotroller extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::find($id);
-        //$category->productID = $request->productID;
         $category->categoryName = $request->categoryName;
         $category->save();
         return redirect()->route('categories.index');

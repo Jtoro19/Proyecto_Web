@@ -15,17 +15,14 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'productID' => '1',
             'categoryName' => 'Computadores',
         ]);
 
         DB::table('categories')->insert([
-            'productID' => '2',
             'categoryName' => 'Celulares',
         ]);
 
         DB::table('categories')->insert([
-            'productID' => '3',
             'categoryName' => 'Gadgets',
         ]);
     }

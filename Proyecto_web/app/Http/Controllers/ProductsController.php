@@ -27,10 +27,17 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
+        $product->categID = $request->categID;
         $product->able = 1;
         $product->save();
         return redirect()->route('products.index');
     }
+
+    public function showCatalog()
+{
+    $products = Product::all();
+    return view('/iniciologin', compact('products'));
+}
 
     public function show($id)
     {
@@ -51,6 +58,7 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
+        $product->categID = $request->categID;
         $product->save();
         return redirect()->route('products.index');
     }
