@@ -14,7 +14,7 @@
                         <p class="card-text"><strong>Precio: $999.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <p class="card-text"><strong>Precio: $1099.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <p class="card-text"><strong>Precio: $899.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                         <p class="card-text"><strong>Precio: $1299.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                         <p class="card-text"><strong>Precio: $1399.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                         <p class="card-text"><strong>Precio: $1499.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                         <p class="card-text"><strong>Precio: $699.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                         <p class="card-text"><strong>Precio: $799.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                         <p class="card-text"><strong>Precio: $599.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                         <p class="card-text"><strong>Precio: $899.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
                         <p class="card-text"><strong>Precio: $999.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -183,7 +183,7 @@
                         <p class="card-text"><strong>Precio: $1099.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                         <p class="card-text"><strong>Precio: $49.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                         <p class="card-text"><strong>Precio: $59.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -231,7 +231,7 @@
                         <p class="card-text"><strong>Precio: $69.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -246,7 +246,7 @@
                         <p class="card-text"><strong>Precio: $79.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                         <p class="card-text"><strong>Precio: $89.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -276,7 +276,7 @@
                         <p class="card-text"><strong>Precio: $99.99</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/producto_compra" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>

@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Estilos personalizados -->
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('partials.topheader') <!-- Top header -->
-    @include('partials.botheader') <!-- Bot header -->
+    @include('partials.topheader')
 
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -21,7 +20,7 @@
                         <h2>Resumen de Compra</h2>
                     </div>
                     <div class="card-body product-details">
-                        <!-- Detalles del Producto -->
+
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <img src="https://via.placeholder.com/500x500" class="img-fluid rounded" alt="Producto">
@@ -30,20 +29,19 @@
                                 <h4 class="text-white">Nombre del Producto</h4>
                                 <h5 class="my-3">Precio Unitario: <span class="text-success">$499.99</span></h5>
                                 
-                                <!-- Cantidad a Comprar -->
+
                                 <div class="mb-3">
                                     <label for="quantity" class="form-label text-white">Cantidad</label>
                                     <input type="number" id="quantity" class="form-control" value="1" min="1">
                                 </div>
 
-                                <!-- Precio Total (Cantidad * Precio Unitario) -->
                                 <h5>Total: <span class="text-success" id="totalPrice">$499.99</span></h5>
                             </div>
                         </div>
                         
                         <hr>
 
-                        <!-- Selección de Dirección -->
+
                         <div class="mb-4">
                             <h5 class="text-white">Seleccionar Dirección</h5>
                             <div class="form-group mb-3">
@@ -58,7 +56,7 @@
 
                         <hr>
 
-                        <!-- Costo de Envío -->
+
                         <div class="mb-4">
                             <h5 class="text-white">Costo de Envío</h5>
                             <p class="text-white">Costo del Envío: <span class="text-success">$9.99</span></p>
@@ -66,7 +64,7 @@
 
                         <hr>
 
-                        <!-- Nombre del Destinatario -->
+
                         <div class="mb-3">
                             <h5 class="text-white">Nombre del Destinatario</h5>
                             <input type="text" class="form-control" placeholder="Nombre de la persona que recibirá el producto">
@@ -80,9 +78,9 @@
         </div>
     </div>
 
-    @include('partials.footer') <!-- Footer -->
+    @include('partials.footer') 
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
