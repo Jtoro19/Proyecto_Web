@@ -14,7 +14,7 @@ use App\Http\Controllers\ShipmentsController;
 
 //this is a comment
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('/inicio');
 });
 
@@ -73,6 +73,9 @@ Route::delete('/categories/{id}',[CategoriesController::class,'destroy'])->name(
 
 Route::get('/products/index', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/iniciologin', [ProductsController::class, 'showCatalog'])->name('iniciologin');
+Route::get('/home', [ProductsController::class, 'showCatalog'])->name('home');
+Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio');
+Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
 Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
 Route::get('products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::put('products/{product}', [ProductsController::class, 'update'])->name('products.update');
