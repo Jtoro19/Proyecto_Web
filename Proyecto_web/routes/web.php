@@ -12,6 +12,7 @@ use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ShipmentsController;
 
+//this is a comment
 
 Route::get('/', function () {
     return view('/inicio');
