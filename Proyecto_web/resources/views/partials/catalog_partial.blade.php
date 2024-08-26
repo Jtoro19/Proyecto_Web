@@ -11,10 +11,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->productName }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
-                        <p class="card-text"><strong>Precio: ${{ number_format($product->price, 2) }}</strong></p>
+                        <p class="card-text"><strong>Precio: ${{ number_format($product->price) }}</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/products/info/{{ $product->id }}" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->productName }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
-                        <p class="card-text"><strong>Precio: ${{ number_format($product->price, 2) }}</strong></p>
+                        <p class="card-text"><strong>Precio: ${{ number_format($product->price) }}</strong></p>
                     </div>
                     <div class="card-footer">
-                        <a href="/products/info/{{ $product->id }}" class="btn btn-custom w-100">Comprar</a>
+                        <a href="/products/info" class="btn btn-custom w-100">Comprar</a>
                     </div>
                 </div>
             </div>

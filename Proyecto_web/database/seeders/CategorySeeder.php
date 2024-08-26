@@ -16,14 +16,17 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             'categoryName' => 'Computadores',
+            'able'=> '1'
         ]);
 
         DB::table('categories')->insert([
             'categoryName' => 'Celulares',
+            'able'=> '1'
         ]);
 
         DB::table('categories')->insert([
             'categoryName' => 'Gadgets',
+            'able'=> '1'
         ]);
     }
 }

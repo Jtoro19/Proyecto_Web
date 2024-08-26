@@ -37,17 +37,22 @@
                 </div>
 
                 <!-- Sección de Direcciones -->
-                <div class="address-section mt-5">
-                    <label for="addresses">Direcciones</label>
-                    <ul class="list-group" id="addresses">
-                        <li class="list-group-item">Calle 123, Ciudad ABC</li>
-                        <li class="list-group-item">Carrera 45, Ciudad XYZ</li>
-                    </ul>
+                <div class="address-section mt-5 d-flex justify-content-between align-items-center">
+                    <div>
+                        <label for="addresses">Direcciones</label>
+                        <ul class="list-group" id="addresses">
+                            <li class="list-group-item">Calle 123, Ciudad ABC</li>
+                            <li class="list-group-item">Carrera 45, Ciudad XYZ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Gestionar Direcciones</button>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="profile-actions">
+        <div class="profile-actions mt-4">
             <button class="btn btn-primary">Editar</button>
             <button class="btn btn-danger">Borrar cuenta</button>
         </div>

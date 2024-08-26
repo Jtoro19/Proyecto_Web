@@ -7,7 +7,6 @@ use App\Models\Address;
 
 class AddressesController extends Controller
 {
-
     public function index()
     {
         $addresses = Address::all();

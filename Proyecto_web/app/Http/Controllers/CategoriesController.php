@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
-class CategoriesCotroller extends Controller
-{
 
+class CategoriesController extends Controller
+{
     public function index()
     {
         $categories = Category::all();
@@ -23,6 +23,7 @@ class CategoriesCotroller extends Controller
     {
         $category = new Category();
         $category->categoryName = $request->categoryName;
+        $category->able=1;
         $category->save();
         return redirect()->route('categories.index');
     }
@@ -49,7 +50,9 @@ class CategoriesCotroller extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('');
+        $category->able=0;
+        $category->save();
+        
+        return redirect()->route('categories.index');
     }
 }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Direcciones</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    @include('partials.topheader')
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Lista de Direcciones</h2>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Código de la Dirección</th>
+                        <th scope="col">Código del Usuario</th>
+                        <th scope="col">Nombre de la Dirección</th>
+                        <th scope="col">Información</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>USR001</td>
+                        <td>Casa Principal</td>
+                        <td>Calle 123, Barrio Centro, Ciudad</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
+                            <form method="POST" action="#" style="display: inline">
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>USR002</td>
+                        <td>Oficina</td>
+                        <td>Avenida 456, Edificio X, Oficina 12</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
+                            <form method="POST" action="#" style="display: inline">
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>USR003</td>
+                        <td>Casa de Vacaciones</td>
+                        <td>Carretera 789, Playa Sol, Provincia</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-sm me-2">Editar</a>
+                            <form method="POST" action="#" style="display: inline">
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Crear Dirección</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="{{ route('addresses.store') }}" method="POST">
+                        @csrf
+                        
+                        <input type="hidden" name="userID" value="3">
+                        
+                        <div class="mb-3">
+                            <label for="addressName" class="form-label">Nombre de la Dirección</label>
+                            <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Ingresa el nombre de la dirección">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="information" class="form-label">Información Adicional</label>
+                            <textarea class="form-control" id="information" name="information" rows="4" placeholder="Ingresa información adicional"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Crear Dirección</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+    @include('partials.footer')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
