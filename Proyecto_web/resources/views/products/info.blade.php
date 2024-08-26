@@ -11,7 +11,6 @@
 </head>
 <body>
     @include('partials.topheader')
-    @include('partials.botheader') 
 
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -41,7 +40,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="#" class="btn btn-custom btn-lg">Agregar al Carrito</a>
+                        <a href="\products/purchase" class="btn btn-custom btn-lg">Agregar al Carrito</a>
                     </div>
                 </div>
 
