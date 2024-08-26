@@ -58,6 +58,10 @@ Route::get('/products/info', function() {
     return view('/products/info');
 });
 
+Route::get('/products/edit', function() {
+    return view('/products/edit');
+});
+
 
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
