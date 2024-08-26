@@ -55,6 +55,6 @@ class AddressesController extends Controller
         $address = Address::find($id);
         $address->able=0;
         $address->save();
-        return redirect()->route('');
+        return redirect()->route('addresses.index');
     }
 }
