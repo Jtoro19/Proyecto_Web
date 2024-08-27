@@ -40,6 +40,17 @@
                         <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción del producto">{{ $product->description }}</textarea>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="categID" class="form-label">Categoría</label>
+                        <select class="form-select" id="categID" name="categID">
+                            <option value="">Selecciona una categoría</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
+                            @endforeach
+                        </select>
+                    </div>                    
+
+
                     <button type="submit" class="btn btn-primary w-100">Modificar</button>
                 </form>
             </div>

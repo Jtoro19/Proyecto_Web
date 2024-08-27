@@ -11,8 +11,9 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', ['products' => $products]);
+    $products = Product::all();
+    $categories = Category::all();
+    return view('products.index', ['products' => $products, 'categories' => $categories]);
     }
 
     public function create()
@@ -64,7 +65,8 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.edit', ['product' => $product]);
+        $categories = Category::all(); // Asegúrate de tener un modelo Category
+        return view('products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, $id)
