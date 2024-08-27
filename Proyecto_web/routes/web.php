@@ -58,6 +58,13 @@ Route::get('/addresses/index', function() {
     return view('/addresses/index');
 });
 
+Route::get('/shipments/index', function() {
+    return view('/shipments/index');
+});
+
+Route::get('/shipments/info', function() {
+    return view('/shipments/info');
+});
 
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
