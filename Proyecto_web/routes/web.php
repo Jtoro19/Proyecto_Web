@@ -30,10 +30,6 @@ Route::get('/inicio', function() {
     return view('/inicio');
 });
 
-Route::get('/iniciologin', function() {
-    return view('/iniciologin');
-});
-
 Route::get('/perfil', function() {
     return view('/perfil');
 });
@@ -66,6 +62,13 @@ Route::get('/shipments/info', function() {
     return view('/shipments/info');
 });
 
+
+Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio');
+Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
+Route::get('/iniciologin', [ProductsController::class, 'showCatalogLogin'])->name('iniciologin');
+Route::get('/home', [ProductsController::class, 'showCatalogLogin'])->name('home');
+
+
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 Route::get('users/edit/{id}',[UsersController::class,'edit'])->name('users.edit');
@@ -78,11 +81,8 @@ Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('c
 Route::put('categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{id}',[CategoriesController::class,'destroy'])->name('categories.destroy');
 
+
 Route::get('/products/index', [ProductsController::class, 'index'])->name('products.index');
-Route::get('/iniciologin', [ProductsController::class, 'showCatalog'])->name('iniciologin');
-Route::get('/home', [ProductsController::class, 'showCatalog'])->name('home');
-Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio');
-Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
 Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
 Route::get('products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::put('products/{product}', [ProductsController::class, 'update'])->name('products.update');

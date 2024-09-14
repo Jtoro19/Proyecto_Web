@@ -39,8 +39,15 @@ class ProductsController extends Controller
     {
     $categories = Category::all();
     $products = Product::all()->groupBy('categID');
-    return view('/iniciologin', compact('categories', 'products'));
+    return view('/inicio', compact('categories', 'products'));
     }
+
+    public function showCatalogLogin()
+    {
+    $categories = Category::all();
+    $products = Product::all()->groupBy('categID');
+    return view('/iniciologin', compact('categories', 'products'));
+    }    
 
 
     public function showInfo($id)
