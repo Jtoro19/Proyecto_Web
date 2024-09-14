@@ -11,6 +11,7 @@ use App\Http\Controllers\ReceiptsCotroller;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ShipmentsController;
+use App\Http\Controllers\Auth\RegisterController;
 
 //this is a comment
 
@@ -67,6 +68,9 @@ Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio'
 Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
 Route::get('/iniciologin', [ProductsController::class, 'showCatalogLogin'])->name('iniciologin');
 Route::get('/home', [ProductsController::class, 'showCatalogLogin'])->name('home');
+
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
 
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');

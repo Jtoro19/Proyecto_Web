@@ -14,6 +14,15 @@ class RolesController extends Controller
         return view('roles.index', ['roles' => $roles]);
     }
 
+    public function showRegistrationForm()
+    {
+    // Fetch roles from the database
+    $roles = Role::all();
+
+    // Pass roles to the view
+    return view('auth.register')->with('roles', $roles);
+    }
+
     public function create()
     {
         return view('');
