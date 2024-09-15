@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Address;
+use Illuminate\Support\Facades\Auth;
 
 class AddressesController extends Controller
 {
     public function index()
     {
-        $addresses = Address::all();
+        $addresses = Address::where('userID', Auth::id())->get();
         return view('addresses.index', ['addresses' => $addresses]);
     }
 

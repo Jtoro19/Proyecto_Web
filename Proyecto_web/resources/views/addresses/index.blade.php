@@ -54,7 +54,7 @@
                 <form action="{{ route('addresses.store') }}" method="POST">
                     @csrf
                     
-                    <input type="hidden" name="userID" value="3">
+                    <input type="hidden" name="userID" value="{{ Auth::id() }}">
                     
                     <div class="mb-3">
                         <label for="addressName" class="form-label">Nombre de la Dirección</label>
