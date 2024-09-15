@@ -15,7 +15,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
-                            <li><a class="dropdown-item" href="#category_{{ $category->id }}">{{ $category->categoryName }}</a></li>
+                            @if($category->able)
+                                <li><a class="dropdown-item" href="#category_{{ $category->id }}">{{ $category->categoryName }}</a></li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
