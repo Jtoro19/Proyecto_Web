@@ -49,8 +49,6 @@
                             @forelse ($addresses as $address)
                                 @if($address->able)
                                     <li class="list-group-item">{{ $address->addressName }}</li>
-                                @else
-                                    <li class="list-group-item">No hay direcciones registradas.</li>
                                 @endif
                             @empty
                                 <li class="list-group-item">No hay direcciones registradas.</li>
@@ -58,7 +56,7 @@
                         </ul>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Gestionar Direcciones</button>
+                        <a href="{{ route('addresses.index') }}" class="btn btn-primary">Gestionar Direcciones</a>
                     </div>
                 </div>
 

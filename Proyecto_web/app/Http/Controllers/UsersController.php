@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -39,20 +40,28 @@ class UsersController extends Controller
     }
 
     public function showProfile($id)
-{
-    // Busca el usuario por su ID
-    $user = User::find($id);
-    
-    // Verifica si el usuario existe
-    if (!$user) {
-        return redirect()->route('iniciologin')->with('error', 'Usuario no encontrado');
-    }
+    {
+        // Obtén el usuario autenticado
+        $authUser = Auth::user();
+        
+        // Verifica si el usuario autenticado coincide con el ID
+        if ($authUser->id != $id) {
+            return redirect()->route('iniciologin')->with('error', 'No tienes permiso para acceder a este perfil.');
+        }
 
-    // Obtén las direcciones asociadas al usuario (relación user-address)
-    $addresses = $user->addresses;
+        // Busca el usuario por su ID
+        $user = User::find($id);
+        
+        // Verifica si el usuario existe
+        if (!$user) {
+            return redirect()->route('iniciologin')->with('error', 'Usuario no encontrado');
+        }
 
-    // Pasa el usuario y las direcciones a la vista
-    return view('users.perfil', ['user' => $user, 'addresses' => $addresses]);
+        // Obtén las direcciones asociadas al usuario (relación user-address)
+        $addresses = $user->addresses;
+
+        // Pasa el usuario y las direcciones a la vista
+        return view('users.perfil', ['user' => $user, 'addresses' => $addresses]);
     }
 
     public function edit($id)
