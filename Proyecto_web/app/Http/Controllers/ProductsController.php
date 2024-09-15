@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Address;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -62,7 +64,30 @@ class ProductsController extends Controller
 
     // Pasa el producto a la vista
     return view('products.info', ['product' => $product]);
-    }   
+    }
+    
+    public function showPurchaseSummary($id)
+    {
+    // Busca el producto por ID
+    $product = Product::find($id);
+
+    // Verifica si el producto existe
+    if (!$product) {
+        return redirect()->route('products.index')->with('error', 'Producto no encontrado');
+    }
+
+    // Obtiene el usuario autenticado
+    $user = Auth::user();
+
+    // Busca las direcciones del usuario autenticado
+    $addresses = Address::where('userID', $user->id)->get();
+
+    // Pasa el producto y las direcciones a la vista de resumen de compra
+    return view('products.purchase', [
+        'product' => $product,
+        'addresses' => $addresses
+    ]);
+    }
 
     public function show($id)
     {

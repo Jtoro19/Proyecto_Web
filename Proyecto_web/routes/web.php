@@ -93,6 +93,7 @@ Route::get('products/edit/{id}', [ProductsController::class, 'edit'])->name('pro
 Route::put('products/{product}', [ProductsController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
 Route::get('/products/info/{id}', [ProductsController::class, 'showInfo'])->name('products.info');
+Route::get('/products/purchase/{id}', [ProductsController::class, 'showPurchaseSummary'])->name('products.purchase');
 
 Route::get('/addresses/index', [AddressesController::class, 'index'])->name('addresses.index');
 Route::post('/addresses', [AddressesController::class, 'store'])->name('addresses.store');

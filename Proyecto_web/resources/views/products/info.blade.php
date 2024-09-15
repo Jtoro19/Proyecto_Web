@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="{{ url('/products/purchase') }}" class="btn btn-custom btn-lg">Agregar al Carrito</a>
+                    <a href="{{ route('products.purchase', ['id' => $product->id]) }}" class="btn btn-custom btn-lg">Agregar al Carrito</a>
                     </div>
                 </div>
 
