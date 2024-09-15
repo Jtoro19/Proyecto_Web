@@ -104,4 +104,6 @@ Route::delete('/addresses/{id}',[AddressesController::class,'destroy'])->name('a
 Route::get('/receipts/index', [ReceiptsController::class, 'index'])->name('receipts.index');
 Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.store');
 
+Route::get('/items/index', [ItemsController::class, 'index'])->name('items.index');
 Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
+
