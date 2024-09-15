@@ -107,3 +107,5 @@ Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.s
 Route::get('/items/index', [ItemsController::class, 'index'])->name('items.index');
 Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 
+Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
+

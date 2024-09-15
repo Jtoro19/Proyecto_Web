@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
-class ReviewsCotroller extends Controller
+class ReviewsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -22,12 +28,15 @@ class ReviewsCotroller extends Controller
     public function store(Request $request)
     {
         $review = new Review();
-        $review->userID = $request->userID;
-        $review->productID = $request->productID;
+        $review->userID = $request->userID; // ID del usuario autenticado
+        $review->productID = $request->productID; // ID del producto
         $review->text = $request->text;
         $review->stars = $request->stars;
         $review->save();
-        return redirect()->route('reviews.index');
+
+        // Redirige de vuelta a la página del producto con un mensaje de éxito
+        return redirect()->route('products.info', ['id' => $request->productID])
+                         ->with('success', 'Comentario enviado con éxito');
     }
 
     public function show($id)
