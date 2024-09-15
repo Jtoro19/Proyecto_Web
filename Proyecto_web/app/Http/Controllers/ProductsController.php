@@ -62,8 +62,14 @@ class ProductsController extends Controller
         return redirect()->route('products.index')->with('error', 'Producto no encontrado');
     }
 
-    // Pasa el producto a la vista
-    return view('products.info', ['product' => $product]);
+    // Obtén las características del producto
+    $characteristics = $product->characteristics;
+
+    // Pasa el producto y las características a la vista
+    return view('products.info', [
+        'product' => $product,
+        'characteristics' => $characteristics
+    ]);
     }
     
     public function showPurchaseSummary($id)

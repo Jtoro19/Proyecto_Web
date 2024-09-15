@@ -35,6 +35,16 @@
                             <div class="col-12">
                                 <h5 class="text-white">Descripción</h5>
                                 <p class="text-white">{{ $product->description }}</p>
+                                <h5 class="text-white">Características</h5>
+                                @if($characteristics->isEmpty())
+                                    <p class="text-white">No hay características disponibles.</p>
+                                @else
+                                    <ul class="text-white">
+                                        @foreach($characteristics as $characteristic)
+                                            <li>{{ $characteristic->characteristicName }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>
