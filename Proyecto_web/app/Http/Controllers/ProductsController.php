@@ -11,12 +11,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
+    
     public function index()
     {
-    $products = Product::all();
+    // Filtra los productos por el ID del usuario autenticado
+    $products = Product::where('userID', Auth::id())->get();
+    
+    // Obtiene todas las categorías
     $categories = Category::all();
+    
     return view('products.index', ['products' => $products, 'categories' => $categories]);
     }
+
+
 
     public function create()
     {

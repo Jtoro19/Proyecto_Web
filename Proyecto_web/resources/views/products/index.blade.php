@@ -6,7 +6,6 @@
     <title>Lista de Productos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -31,7 +30,7 @@
                                         <p class="text-white">Código del Producto: #{{ $product->id }}</p>
                                         <p class="text-white">Código del Vendedor: #{{ $product->userID }}</p>
                                         <p class="text-white">Precio: ${{ $product->price }}</p>
-                                        <p class="text-white">Stock: {{ $product->stock}}</p>
+                                        <p class="text-white">Stock: {{ $product->stock }}</p>
                                         <p class="text-white">Descripción: {{ $product->description }}</p>
                                         <div class="d-flex justify-content-end">
                                             <a href="{{ route('products.edit', $product) }}" class="btn btn-warning me-2">Editar</a>
@@ -60,7 +59,7 @@
                             <form action="{{ route('products.store') }}" method="POST">
                                 @csrf
 
-                                <input type="hidden" name="userID" value="3">
+                                <input type="hidden" name="userID" value="{{ Auth::id() }}">
                                 
                                 <div class="mb-3">
                                     <label for="productName" class="form-label">Nombre del Producto</label>
@@ -108,3 +107,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
