@@ -25,7 +25,7 @@ class ReceiptsCotroller extends Controller
         $receipt->totalPrice = $request->totalPrice;
         $receipt->date = $request->date;
         $receipt->save();
-        return redirect()->route('receipts.index');
+        return redirect()->route('iniciologin');
     }
 
 }
