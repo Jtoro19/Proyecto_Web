@@ -62,9 +62,16 @@ class ReviewsController extends Controller
     }
 
     public function destroy($id)
-    {
-        $review = Review::find($id);
-        $review->delete();
-        return redirect()->route('');
+{
+    $review = Review::findOrFail($id);
+
+    // Verifica si el usuario es el dueño de la reseña
+    if (Auth::id() !== $review->userID) {
+        abort(403, 'No tienes permiso para eliminar esta reseña.');
     }
+
+    $review->delete();
+
+    return redirect()->back()->with('success', 'Reseña eliminada exitosamente.');
+}
 }

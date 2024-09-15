@@ -108,6 +108,7 @@ Route::get('/items/index', [ItemsController::class, 'index'])->name('items.index
 Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 
 Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
+Route::delete('/reviews/{id}', [ReviewsController::class, 'destroy'])->name('reviews.destroy');
 
 
 Route::get('/characteristics/index', [CharacteristicsController::class, 'index'])->name('characteristics.index');
