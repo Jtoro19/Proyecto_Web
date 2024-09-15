@@ -14,7 +14,9 @@
         @csrf
         <input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>">
         <input type="hidden" name="totalPrice" id="hiddenTotalPrice" value="{{ number_format($product->price, 2) }}">
-        <input type="hidden" name="productID" value="{{ $product->id }}"> <!-- Enviar el productID -->
+        <input type="hidden" name="productID" value="{{ $product->id }}">
+        <input type="hidden" name="userID" value="{{ Auth::id() }}"> <!-- ID del usuario autenticado -->
+        <input type="hidden" name="shipmentCost" value="9.99"> <!-- Costo de envío fijo -->
 
         <div class="container my-5">
             <div class="row justify-content-center">
@@ -46,7 +48,7 @@
                             <div class="mb-4">
                                 <h5 class="text-white">Seleccionar Dirección</h5>
                                 <div class="form-group mb-3">
-                                    <select class="form-select">
+                                    <select class="form-select" name="addressID">
                                         @foreach($addresses as $address)
                                             @if($address->able)
                                                 <option value="{{ $address->id }}">{{ $address->addressName }}</option>
@@ -70,7 +72,7 @@
 
                             <div class="mb-3">
                                 <h5 class="text-white">Nombre del Destinatario</h5>
-                                <input type="text" class="form-control" placeholder="Nombre de la persona que recibirá el producto">
+                                <input type="text" name="recipientName" class="form-control" placeholder="Nombre de la persona que recibirá el producto" required>
                             </div>
                         </div>
                         <div class="card-footer text-center">
@@ -81,6 +83,7 @@
             </div>
         </div>
     </form>
+
 
 
     @include('partials.footer')

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Receipt;
 use App\Models\Item;
+use App\Models\Shipment;
+use Illuminate\Support\Facades\Auth;
 
 class ReceiptsController extends Controller
 {
@@ -16,7 +18,7 @@ class ReceiptsController extends Controller
 
     public function create()
     {
-        return view(''); // Si no tienes una vista de creación, puedes eliminar este método.
+        
     }
 
     public function store(Request $request)
@@ -26,7 +28,9 @@ class ReceiptsController extends Controller
             'totalPrice' => 'required|numeric',
             'date' => 'required|date',
             'productID' => 'required|exists:products,id', // Asegura que el producto existe
-            'quantity' => 'required|integer|min:1'
+            'quantity' => 'required|integer|min:1',
+            'addressID' => 'required|exists:addresses,id', // Asegura que la dirección existe
+            'recipientName' => 'required|string|max:255',
         ]);
 
         // Crear el recibo
@@ -42,9 +46,22 @@ class ReceiptsController extends Controller
         $item->quantity = $request->quantity;
         $item->save();
 
-        // Redirigir al índice de items o a donde prefieras
-        return redirect()->route('iniciologin')->with('success', 'Compra y ítem creados exitosamente.');
+        // Crear el envío asociado
+        $shipment = new Shipment();
+        $shipment->userID = Auth::id(); // Usuario autenticado
+        $shipment->addressID = $request->addressID;
+        $shipment->receiptID = $receipt->id; // Usamos el ID del recibo
+        $shipment->departureDate = now()->addDays(2); // Valor por defecto
+        $shipment->deliveryDate = now()->addDays(15); // Valor por defecto
+        $shipment->status = 'En proceso'; // Valor por defecto
+        $shipment->cost = 9.99; // Valor por defecto
+        $shipment->recipientName = $request->recipientName;
+        $shipment->save();
+
+        // Redirigir al índice de ítems o a donde prefieras
+        return redirect()->route('iniciologin')->with('success', 'Compra, ítem y envío creados exitosamente.');
     }
 }
+
 
 

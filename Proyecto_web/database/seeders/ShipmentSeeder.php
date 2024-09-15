@@ -21,7 +21,7 @@ class ShipmentSeeder extends Seeder
             'departureDate' => '2021-10-01',
             'deliveryDate' => '2021-10-02',
             'status' => 'En camino',
-            'cost' => '2000000',
+            'cost' => '9.99',
             'recipientName' => 'Juan Perez',
         ]);
 
@@ -32,7 +32,7 @@ class ShipmentSeeder extends Seeder
             'departureDate' => '2024-10-02',
             'deliveryDate' => '2024-10-03',
             'status' => 'En camino',
-            'cost' => '5400000',
+            'cost' => '9.99',
             'recipientName' => 'Juan Perez',
         ]);
         
@@ -43,7 +43,7 @@ class ShipmentSeeder extends Seeder
             'departureDate' => '2020-10-03',
             'deliveryDate' => '2020-10-04',
             'status' => 'En camino',
-            'cost' => '300000',
+            'cost' => '9.99',
             'recipientName' => 'Juan Perez',
         ]);
     }

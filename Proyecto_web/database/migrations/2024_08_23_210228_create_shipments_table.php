@@ -26,7 +26,7 @@ class CreateShipmentsTable extends Migration
             $table->date('departureDate');
             $table->date('deliveryDate')->nullable();
             $table->string('status');
-            $table->integer('cost');
+            $table->double('cost');
             $table->string('recipientName');
             $table->timestamps();
         });

@@ -27,10 +27,13 @@ class ShipmentsCotroller extends Controller
         $shipment->userID = $request->userID;
         $shipment->addressID = $request->addressID;
         $shipment->receiptID = $request->receiptID;
-        $shipment->departureDate = $request->departureDate;
-        $shipment->deliveryDate = $request->deliveryDate;
-        $shipment->status = $request->status;
-        $shipment->cost = $request->cost;
+
+        $today = now(); // Obtiene la fecha y hora actuales
+        $shipment->departureDate = $request->departureDate ? $request->departureDate : $today->addDays(2);
+        $shipment->deliveryDate = $request->deliveryDate ? $request->deliveryDate : $today->addDays(15);
+        
+        $shipment->status = 'En proceso';
+        $shipment->cost = 9.99;
         $shipment->recipientName = $request->recipientName;
         $shipment->save();
         return redirect()->route('shipments.index');
