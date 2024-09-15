@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Characteristic;
 
-class CharacteristicsCotroller extends Controller
+class CharacteristicsController extends Controller
 {
-
     public function index()
     {
         $characteristics = Characteristic::all();
@@ -52,6 +51,6 @@ class CharacteristicsCotroller extends Controller
     {
         $characteristic = Characteristic::find($id);
         $characteristic->delete();
-        return redirect()->route('');
+        return redirect()->route('characteristics.index');
     }
 }

@@ -109,3 +109,8 @@ Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 
 Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 
+
+Route::get('/characteristics/index', [CharacteristicsController::class, 'index'])->name('characteristics.index');
+Route::post('/characteristics', [Characteristics::class, 'store'])->name('characteristics.store');
+Route::put('characteristics/{category}', [CharacteristicsController::class, 'update'])->name('characteristics.update');
+Route::delete('/characteristics/{id}',[CharacteristicsController::class,'destroy'])->name('characteristics.destroy');
