@@ -65,10 +65,14 @@ class ProductsController extends Controller
     // Obtén las características del producto
     $characteristics = $product->characteristics;
 
-    // Pasa el producto y las características a la vista
+    // Obtén las reseñas del producto
+    $reviews = $product->reviews()->with('user')->get(); // Asume que existe una relación reviews en el modelo Product
+
+    // Pasa el producto, las características y las reseñas a la vista
     return view('products.info', [
         'product' => $product,
-        'characteristics' => $characteristics
+        'characteristics' => $characteristics,
+        'reviews' => $reviews
     ]);
     }
     

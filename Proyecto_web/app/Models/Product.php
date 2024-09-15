@@ -14,4 +14,9 @@ class Product extends Model
         return $this->hasMany(Characteristic::class, 'productID');
     }
 
+    public function reviews()
+    {
+    return $this->hasMany(Review::class, 'productID');
+    }
+
 }

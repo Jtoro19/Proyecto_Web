@@ -6,6 +6,7 @@
     <title>Información del Producto</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -54,7 +55,34 @@
                 </div>
 
                 @include('partials.comments')
-                @include('reviews.index')
+
+                <div class="card my-4">
+                    <div class="card-header bg-custom-primary text-white">
+                        <h5>Reseñas del Producto</h5>
+                    </div>
+                    <div class="card-body">
+                        @if($reviews->isEmpty())
+                            <p class="text-white">No hay reseñas para este producto.</p>
+                        @else
+                            @foreach($reviews as $review)
+                                <div class="review mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <strong class="me-2">{{ $review->user->userName }}</strong>
+                                        <div class="text-warning">
+                                            @for ($i = 0; $i < $review->stars; $i++)
+                                                <span class="bi bi-star-fill"></span>
+                                            @endfor
+                                            @for ($i = $review->stars; $i < 5; $i++)
+                                                <span class="bi bi-star"></span>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                    <p>{{ $review->text }}</p>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
 
             </div>
         </div>
