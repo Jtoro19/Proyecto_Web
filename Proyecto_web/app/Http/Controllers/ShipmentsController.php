@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shipment;
+use Illuminate\Support\Facades\Auth;
 
-class ShipmentsCotroller extends Controller
+class ShipmentsController extends Controller
 {
 
     public function index()
     {
-        $shipments = Shipment::all();
-        return view('shipments.index', ['shipments' => $shipments]);
+    // Obtiene los envíos del usuario autenticado
+    $shipments = Shipment::where('userID', Auth::id())->get();
+    return view('shipments.index', ['shipments' => $shipments]);
     }
 
 
@@ -41,7 +43,11 @@ class ShipmentsCotroller extends Controller
 
     public function show($id)
     {
-        //
+    // Obtiene el envío por ID y asegura que pertenezca al usuario autenticado
+    $shipment = Shipment::where('id', $id)->where('userID', Auth::id())->firstOrFail();
+
+    // Retorna la vista 'shipments.info' con los datos del envío
+    return view('shipments.info', ['shipment' => $shipment]);
     }
 
 }

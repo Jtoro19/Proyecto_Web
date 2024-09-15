@@ -114,3 +114,8 @@ Route::get('/characteristics/index', [CharacteristicsController::class, 'index']
 Route::post('/characteristics', [Characteristics::class, 'store'])->name('characteristics.store');
 Route::put('characteristics/{category}', [CharacteristicsController::class, 'update'])->name('characteristics.update');
 Route::delete('/characteristics/{id}',[CharacteristicsController::class,'destroy'])->name('characteristics.destroy');
+
+
+Route::get('/shipments/index', [ShipmentsController::class, 'index'])->name('shipments.index');
+Route::post('/shipments', [ShipmentsController::class, 'store'])->name('shipments.store');
+Route::get('/shipments/info/{id}', [ShipmentsController::class, 'show'])->name('shipments.show');

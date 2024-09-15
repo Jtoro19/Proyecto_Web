@@ -7,8 +7,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos personalizados -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -24,32 +22,32 @@
             <div class="card-body">
                 <dl class="row">
                     <dt class="col-sm-4">Código del Envío:</dt>
-                    <dd class="col-sm-8">ENV001</dd>
+                    <dd class="col-sm-8">{{ $shipment->id }}</dd>
 
                     <dt class="col-sm-4">Código del Usuario:</dt>
-                    <dd class="col-sm-8">USR001</dd>
+                    <dd class="col-sm-8">{{ $shipment->userID }}</dd>
 
                     <dt class="col-sm-4">Código de la Dirección:</dt>
-                    <dd class="col-sm-8">DIR001</dd>
+                    <dd class="col-sm-8">{{ $shipment->addressID }}</dd>
 
                     <dt class="col-sm-4">Fecha de Salida:</dt>
-                    <dd class="col-sm-8">2024-08-01</dd>
+                    <dd class="col-sm-8">{{ $shipment->departureDate }}</dd>
 
                     <dt class="col-sm-4">Fecha de Entrega:</dt>
-                    <dd class="col-sm-8">2024-08-05</dd>
+                    <dd class="col-sm-8">{{ $shipment->deliveryDate }}</dd>
 
                     <dt class="col-sm-4">Estado:</dt>
-                    <dd class="col-sm-8">En Transito</dd>
+                    <dd class="col-sm-8">{{ $shipment->status }}</dd>
 
                     <dt class="col-sm-4">Costo:</dt>
-                    <dd class="col-sm-8">$25.00</dd>
+                    <dd class="col-sm-8">${{ number_format($shipment->cost, 2) }}</dd>
 
                     <dt class="col-sm-4">Nombre del Receptor:</dt>
-                    <dd class="col-sm-8">Juan Pérez</dd>
+                    <dd class="col-sm-8">{{ $shipment->recipientName }}</dd>
                 </dl>
             </div>
             <div class="card-footer text-end">
-                <a href="{{ url('shipments/index') }}" class="btn btn-primary">Volver a la Lista</a>
+                <a href="{{ route('shipments.index') }}" class="btn btn-primary">Volver a la Lista</a>
             </div>
         </div>
     </div>
@@ -60,4 +58,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 

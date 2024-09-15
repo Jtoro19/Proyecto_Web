@@ -7,8 +7,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos personalizados -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -34,46 +32,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Ejemplos de filas de envíos -->
+                    @foreach($shipments as $shipment)
                     <tr>
-                        <td>ENV001</td>
-                        <td>USR001</td>
-                        <td>DIR001</td>
-                        <td>2024-08-01</td>
-                        <td>2024-08-05</td>
-                        <td>En Transito</td>
-                        <td>$25.00</td>
-                        <td>Juan Pérez</td>
+                        <td>{{ $shipment->id }}</td>
+                        <td>{{ $shipment->userID }}</td>
+                        <td>{{ $shipment->addressID }}</td>
+                        <td>{{ $shipment->departureDate }}</td>
+                        <td>{{ $shipment->deliveryDate }}</td>
+                        <td>{{ $shipment->status }}</td>
+                        <td>${{ number_format($shipment->cost, 2) }}</td>
+                        <td>{{ $shipment->recipientName }}</td>
                         <td>
-                            <a href="/shipments/info" class="btn btn-info btn-sm">Consultar</a>
+                            <a href="/shipments/info/{{ $shipment->id }}" class="btn btn-info btn-sm">Consultar</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>ENV002</td>
-                        <td>USR002</td>
-                        <td>DIR002</td>
-                        <td>2024-08-02</td>
-                        <td>2024-08-06</td>
-                        <td>Entregado</td>
-                        <td>$30.00</td>
-                        <td>María López</td>
-                        <td>
-                            <a href="/shipments/info"" class="btn btn-info btn-sm">Consultar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ENV003</td>
-                        <td>USR003</td>
-                        <td>DIR003</td>
-                        <td>2024-08-03</td>
-                        <td>2024-08-07</td>
-                        <td>En Espera</td>
-                        <td>$20.00</td>
-                        <td>Carlos García</td>
-                        <td>
-                            <a href="/shipments/info" class="btn btn-info btn-sm">Consultar</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -85,3 +58,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
