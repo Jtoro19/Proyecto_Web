@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CharacteristicsController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ReceiptsCotroller;
+use App\Http\Controllers\ReceiptsController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ShipmentsController;
@@ -101,5 +101,7 @@ Route::get('addresses/edit/{id}',[AddressesController::class,'edit'])->name('add
 Route::put('addresses/{address}', [AddressesController::class, 'update'])->name('addresses.update');
 Route::delete('/addresses/{id}',[AddressesController::class,'destroy'])->name('addresses.destroy');
 
-Route::get('/receipts/index', [ReceiptsCotroller::class, 'index'])->name('receipts.index');
-Route::post('/receipts', [ReceiptsCotroller::class, 'store'])->name('receipts.store');
+Route::get('/receipts/index', [ReceiptsController::class, 'index'])->name('receipts.index');
+Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.store');
+
+Route::post('/items', [ItemsController::class, 'store'])->name('items.store');

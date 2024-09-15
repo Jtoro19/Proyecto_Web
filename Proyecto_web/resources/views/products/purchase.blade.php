@@ -13,7 +13,9 @@
     <form action="{{ route('receipts.store') }}" method="POST">
         @csrf
         <input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>">
-        <input type="hidden" id="hiddenTotalPrice" name="totalPrice" value="{{ number_format($product->price, 2) }}">
+        <input type="hidden" name="totalPrice" id="hiddenTotalPrice" value="{{ number_format($product->price, 2) }}">
+        <input type="hidden" name="productID" value="{{ $product->id }}"> <!-- Enviar el productID -->
+
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -22,7 +24,6 @@
                             <h2>Resumen de Compra</h2>
                         </div>
                         <div class="card-body product-details">
-
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <img src="{{ $product->image_url ?? 'https://via.placeholder.com/500x500' }}" class="img-fluid rounded" alt="{{ $product->productName }}">
@@ -33,7 +34,7 @@
 
                                     <div class="mb-3">
                                         <label for="quantity" class="form-label text-white">Cantidad</label>
-                                        <input type="number" id="quantity" class="form-control" value="1" min="1" data-price="{{ $product->price }}" onchange="updateTotalPrice({{ $product->price }})">
+                                        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1" data-price="{{ $product->price }}" onchange="updateTotalPrice({{ $product->price }})">
                                     </div>
 
                                     <h5>Total: <span class="text-success" id="totalPrice">${{ number_format($product->price, 2) }}</span></h5>
