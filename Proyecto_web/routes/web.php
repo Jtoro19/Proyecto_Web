@@ -31,8 +31,8 @@ Route::get('/inicio', function() {
     return view('/inicio');
 });
 
-Route::get('/perfil', function() {
-    return view('/perfil');
+Route::get('/users/perfil', function() {
+    return view('/users/perfil');
 });
 
 Route::get('/products/purchase', function() {
@@ -75,6 +75,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/users/index', [UsersController::class, 'index'])->name('users.index');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+Route::get('/users/perfil/{id}', [UsersController::class, 'showProfile'])->name('users.info');
 Route::get('users/edit/{id}',[UsersController::class,'edit'])->name('users.edit');
 Route::put('users/{user}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');

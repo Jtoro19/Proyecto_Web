@@ -15,8 +15,9 @@
                         <img src="{{ asset('images/profile.png') }}" alt="Perfil" class="dropdown-icon">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
-                        <li>
+                            @auth
+                                <li><a class="dropdown-item" href="/users/perfil/{{ auth()->user()->id }}">Perfil</a></li>
+                            @endauth
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Cerrar sesión</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

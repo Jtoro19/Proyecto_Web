@@ -21,19 +21,19 @@
             <div class="profile-details">
                 <div class="mb-4">
                     <label for="name">Nombre</label>
-                    <div class="data" id="name">Juan Pérez</div>
+                    <div class="data" id="name">{{ $user->userName }}</div>
                 </div>
                 <div class="mb-4">
                     <label for="username">Nombre de usuario</label>
-                    <div class="data" id="username">juan123</div>
+                    <div class="data" id="username">{{ $user->nickname }}</div>
                 </div>
                 <div class="mb-4">
                     <label for="email">Correo</label>
-                    <div class="data" id="email">juan.perez@email.com</div>
+                    <div class="data" id="email">{{ $user->email }}</div>
                 </div>
                 <div>
                     <label for="phone">Teléfono</label>
-                    <div class="data" id="phone">+57 300 123 4567</div>
+                    <div class="data" id="phone">{{ $user->phoneNumber }}</div>
                 </div>
 
                 <!-- Sección de Direcciones -->
@@ -41,20 +41,32 @@
                     <div>
                         <label for="addresses">Direcciones</label>
                         <ul class="list-group" id="addresses">
-                            <li class="list-group-item">Calle 123, Ciudad ABC</li>
-                            <li class="list-group-item">Carrera 45, Ciudad XYZ</li>
+                            @forelse ($addresses as $address)
+                                @if($address->able)
+                                    <li class="list-group-item">{{ $address->addressName }}</li>
+                                @else
+                                    <li class="list-group-item">No hay direcciones registradas.</li>
+                                @endif
+                            @empty
+                                <li class="list-group-item">No hay direcciones registradas.</li>
+                            @endforelse
                         </ul>
                     </div>
                     <div>
                         <button class="btn btn-primary">Gestionar Direcciones</button>
                     </div>
                 </div>
+
             </div>
         </div>
         
         <div class="profile-actions mt-4">
-            <button class="btn btn-primary">Editar</button>
-            <button class="btn btn-danger">Borrar cuenta</button>
+            <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Editar</a>
+            <form method="POST" action="{{route('users.destroy', $user->id)}}" style="display: inline">
+                @csrf
+                @method('DELETE')    
+                <button class="btn btn-danger">Borrar cuenta</button>
+            </form>
         </div>
     </div>
 
