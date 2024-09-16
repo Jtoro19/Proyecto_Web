@@ -349,3 +349,33 @@ footer {
     color: white;
 }
 
+.form-group.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recaptcha-container {
+    margin-left: 34%; /* Valor por defecto para pantallas grandes */
+}
+
+/* Media queries para pantallas medianas */
+@media (max-width: 992px) {
+    .recaptcha-container {
+        margin-left: 25%; /* Ajusta este valor según sea necesario */
+    }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .recaptcha-container {
+        margin-left: 15%; /* Ajusta este valor según sea necesario */
+    }
+}
+
+/* Media queries para pantallas muy pequeñas */
+@media (max-width: 576px) {
+    .recaptcha-container {
+        margin-left: 5%; /* Ajusta este valor según sea necesario */
+    }
+}
