@@ -84,6 +84,11 @@ Route::get('users/edit/{id}',[UsersController::class,'edit'])->name('users.edit'
 Route::put('users/{user}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 
+Route::get('users/editProfile/{id}',[UsersController::class,'editProfile'])->name('users.editProfile');
+Route::put('users/perfil/{user}', [UsersController::class, 'updateProfile'])->name('users.updateProfile');
+Route::delete('/users/perfil/{id}',[UsersController::class,'destroyProfile'])->name('users.destroyProfile');
+
+
 Route::get('/categories/index', [CategoriesController::class, 'index'])->name('categories.index');
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
 Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
