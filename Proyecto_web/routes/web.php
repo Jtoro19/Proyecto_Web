@@ -31,6 +31,10 @@ Route::get('/inicio', function() {
     return view('/inicio');
 });
 
+Route::get('/manage', function() {
+    return view('/manage');
+});
+
 Route::get('/users/perfil', function() {
     return view('/users/perfil');
 });
@@ -106,6 +110,7 @@ Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.s
 
 Route::get('/items/index', [ItemsController::class, 'index'])->name('items.index');
 Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
+Route::get('/receipts/info/{id}', [ReceiptsController::class, 'showInfo'])->name('receipts.info');
 
 Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 Route::delete('/reviews/{id}', [ReviewsController::class, 'destroy'])->name('reviews.destroy');

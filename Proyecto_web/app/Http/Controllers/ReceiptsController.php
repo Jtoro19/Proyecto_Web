@@ -32,20 +32,20 @@ class ReceiptsController extends Controller
             'addressID' => 'required|exists:addresses,id', // Asegura que la dirección existe
             'recipientName' => 'required|string|max:255',
         ]);
-
+    
         // Crear el recibo
         $receipt = new Receipt();
         $receipt->totalPrice = $request->totalPrice;
         $receipt->date = $request->date;
         $receipt->save();
-
+    
         // Crear el ítem asociado
         $item = new Item();
         $item->productID = $request->productID;
         $item->receiptID = $receipt->id; // Usamos el ID del recibo recién creado
         $item->quantity = $request->quantity;
         $item->save();
-
+    
         // Crear el envío asociado
         $shipment = new Shipment();
         $shipment->userID = Auth::id(); // Usuario autenticado
@@ -57,9 +57,29 @@ class ReceiptsController extends Controller
         $shipment->cost = 9.99; // Valor por defecto
         $shipment->recipientName = $request->recipientName;
         $shipment->save();
+    
+        // Redirigir a la ruta 'receipts.info' con el ID del recibo
+        return redirect()->route('receipts.info', ['id' => $receipt->id])->with('success', 'Compra, ítem y envío creados exitosamente.');
+    }
 
-        // Redirigir al índice de ítems o a donde prefieras
-        return redirect()->route('iniciologin')->with('success', 'Compra, ítem y envío creados exitosamente.');
+
+    public function showInfo($id)
+    {
+        // Buscar el recibo por ID
+        $receipt = Receipt::find($id);
+    
+        // Verificar si el recibo existe
+        if (!$receipt) {
+            return redirect()->route('receipts.index')->with('error', 'Recibo no encontrado.');
+        }
+    
+        // Buscar el ítem asociado
+        $item = Item::where('receiptID', $receipt->id)->first();
+    
+        // Buscar el envío asociado
+        $shipment = Shipment::where('receiptID', $receipt->id)->first();
+    
+        return view('receipts.info', ['receipt' => $receipt, 'item' => $item, 'shipment' => $shipment]);
     }
 }
 
