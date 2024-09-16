@@ -21,11 +21,9 @@ Route::get('/', function() {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/inicio', function() {
     return view('/inicio');
@@ -71,7 +69,7 @@ Route::get('/shipments/info', function() {
 Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio');
 Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
 Route::get('/iniciologin', [ProductsController::class, 'showCatalogLogin'])->name('iniciologin');
-Route::get('/home', [ProductsController::class, 'showCatalogLogin'])->name('home');
+// Route::get('/home', [ProductsController::class, 'showCatalogLogin'])->name('home');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);

@@ -10,7 +10,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('partials.topheader') 
+    @include('partials.topheaderManage') 
 
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de Usuarios Registrados</h2>
