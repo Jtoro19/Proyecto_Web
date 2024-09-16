@@ -43,7 +43,7 @@ class RegisterController extends Controller
             'userName' => 'required|string|max:255',
             'nickname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phoneNumber' => 'required|string|max:15',
+            'phoneNumber' => 'required|numeric', // Cambia 'string' a 'numeric'
             'password' => 'required|string|min:8|confirmed',
             'g-recaptcha-response' => function ($atribute, $value, $fail) {
                 $secretKey = config('services.recaptcha.secret');
