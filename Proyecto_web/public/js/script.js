@@ -18,4 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    function selectAddress() {
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+            var addressID = document.getElementById('addressID').value;
+            if (!addressID) {
+                alert('Por favor, seleccione una dirección.');
+                event.preventDefault();
+            }
+        });
+    }
+
+    // Llamar a la función para asegurarse de que el evento se adjunte
+    selectAddress();
+});
+
+
 
