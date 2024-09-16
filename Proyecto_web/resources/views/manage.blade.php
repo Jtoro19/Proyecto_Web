@@ -20,7 +20,7 @@
                     <div class="d-flex flex-column align-items-stretch">
                         <a href="{{ route('users.index') }}" class="btn btn-custom mb-3">Administrar usuarios</a>
                         <a href="{{ route('receipts.index') }}" class="btn btn-custom mb-3">Consultar Recibos</a>
-                        <a href="#" class="btn btn-custom mb-3">Generar reportes</a>
+                        <a href="{{ route('reportsU.administrator.monthNewUsersPDF') }}" class="btn btn-custom mb-3">Generar reportes</a>
                     </div>
                 </div>
             </div>

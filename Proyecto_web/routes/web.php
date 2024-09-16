@@ -125,3 +125,6 @@ Route::delete('/characteristics/{id}',[CharacteristicsController::class,'destroy
 Route::get('/shipments/index', [ShipmentsController::class, 'index'])->name('shipments.index');
 Route::post('/shipments', [ShipmentsController::class, 'store'])->name('shipments.store');
 Route::get('/shipments/info/{id}', [ShipmentsController::class, 'show'])->name('shipments.show');
+
+
+Route::get('/reportsU/administrator/monthNewUsersPDF', [UsersController::class, 'reportUsersPDF'])->name('reportsU.administrator.monthNewUsersPDF');

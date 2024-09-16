@@ -20,6 +20,11 @@ class User extends Authenticatable
         'able',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',

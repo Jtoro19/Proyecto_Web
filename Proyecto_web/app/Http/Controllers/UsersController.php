@@ -90,4 +90,19 @@ class UsersController extends Controller
         $user->save();
         return redirect()->route('users.index');
     }
+
+    public function reportUsersPDF()
+    {
+        // Obtener usuarios del mes con su rol
+        $users = User::whereMonth('created_at', now()->month)
+                    ->whereYear('created_at', now()->year)
+                    ->with('role') // Cargar la relación con roles
+                    ->get();
+
+        // Generar el PDF con la vista 'users_report' pasando los usuarios
+        $pdf = \PDF::loadView('monthNewUsersPDF', compact('users'));
+
+        // Descargar el archivo PDF
+        return $pdf->download('yearNewUsersPDF' . now()->format('Y_m') . '.pdf');
+    }
 }
