@@ -12,8 +12,41 @@ use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ShipmentsController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Middleware\Role;
 
 //this is a comment
+
+// Route::get('/users/perfil', function() {
+//     return view('/users/perfil');
+// });
+
+// Route::get('/products/purchase', function() {
+//     return view('/products/purchase');
+// });
+
+// Route::get('/products/info', function() {
+//     return view('/products/info');
+// });
+
+// Route::get('/addresses/index', function() {
+//     return view('/addresses/index');
+// });
+
+// Route::get('/shipments/index', function() {
+//     return view('/shipments/index');
+// });
+
+// Route::get('/shipments/info', function() {
+//     return view('/shipments/info');
+// });
+
+
+// Route::middleware(['role:administrator'])->group(function () {
+//     Route::resource('students',StudentController::class);
+//     Route::get('/students',[StudentController::class,'index'])->name('students.index');
+//     Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+// });
+
 
 Route::get('/', function() {
     return view('/inicio');
@@ -21,55 +54,23 @@ Route::get('/', function() {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
 Route::get('/inicio', function() {
     return view('/inicio');
-});
 
-Route::get('/manage', function() {
-    return view('/manage');
-});
-
-Route::get('/users/perfil', function() {
-    return view('/users/perfil');
-});
-
-Route::get('/products/purchase', function() {
-    return view('/products/purchase');
-});
-
-Route::get('/compra', function() {
-    return view('/compra');
-});
-
-Route::get('/envio', function() {
-    return view('/envio');
-});
-
-Route::get('/products/info', function() {
-    return view('/products/info');
-});
-
-Route::get('/addresses/index', function() {
-    return view('/addresses/index');
-});
-
-Route::get('/shipments/index', function() {
-    return view('/shipments/index');
-});
-
-Route::get('/shipments/info', function() {
-    return view('/shipments/info');
 });
 
 
 Route::get('/inicio', [ProductsController::class, 'showCatalog'])->name('inicio');
 Route::get('/', [ProductsController::class, 'showCatalog'])->name('');
 Route::get('/iniciologin', [ProductsController::class, 'showCatalogLogin'])->name('iniciologin');
-// Route::get('/home', [ProductsController::class, 'showCatalogLogin'])->name('home');
+
+
+Route::middleware(['role:administrador'])->group(function () {
+    Route::get('/manage', function() {
+        return view('/manage');
+    });
+});
+
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);

@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
     return $this->hasMany(Address::class, 'userID', 'id');
     }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'roleID', 'id'); // Asegúrate de que la clave foránea y primaria sean correctas
+    }
 }

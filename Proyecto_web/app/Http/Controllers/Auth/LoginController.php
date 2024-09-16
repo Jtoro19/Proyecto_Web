@@ -9,17 +9,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -40,15 +29,26 @@ class LoginController extends Controller
     }
 
     protected function sendLoginResponse(Request $request)
-    {
-        $this->clearLoginAttempts($request);
+{
+    $this->clearLoginAttempts($request);
 
-        $user = auth()->user();
+    $user = auth()->user();
 
-        if ($user->roleID == 1) {
-            return redirect('/manage');
-        }
-
-        return redirect('/iniciologin');
+    // Verificar si el usuario tiene un rol asignado
+    if ($user->role) {
+        // Guardar el rol del usuario en la sesión
+        session(['roleName' => $user->role->roleName]);
+    } else {
+        // Manejo en caso de que el usuario no tenga rol asignado
+        session(['roleName' => 'sin rol']);
     }
+
+    // Redirigir según el rol
+    if ($user->roleID == 1) {
+        return redirect('/manage');
+    }
+
+    return redirect('/iniciologin');
 }
+}
+
