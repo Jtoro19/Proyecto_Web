@@ -29,7 +29,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach($characteristics as $characteristic)
                         <tr>
                             <td>{{ $characteristic->id }}</td>
@@ -55,13 +54,14 @@
                 <div class="col-md-6">
                     <form action="{{ route('characteristics.store') }}" method="POST">
                         @csrf
+                        <!-- Agregar campo oculto para enviar el productID -->
+                        <input type="hidden" name="productID" value="{{ $productID }}">
                         
                         <div class="mb-3">
                             <label for="characteristicName" class="form-label">Nombre de la Característica</label>
                             <input type="text" class="form-control" id="characteristicName" name="characteristicName" placeholder="Ingresa el nombre de la característica">
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Crear Característica</button>
-
                     </form>
                 </div>
             </div>

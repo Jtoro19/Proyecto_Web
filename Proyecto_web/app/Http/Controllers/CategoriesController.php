@@ -25,7 +25,7 @@ class CategoriesController extends Controller
         $category->categoryName = $request->categoryName;
         $category->able=1;
         $category->save();
-        return redirect()->route('categories.index');
+        return redirect()->route('products.index');
     }
 
     public function show($id)

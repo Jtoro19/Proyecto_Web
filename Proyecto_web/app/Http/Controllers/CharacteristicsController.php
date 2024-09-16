@@ -7,10 +7,10 @@ use App\Models\Characteristic;
 
 class CharacteristicsController extends Controller
 {
-    public function index()
+    public function index($productID)
     {
-        $characteristics = Characteristic::all();
-        return view('characteristics.index', ['characteristics' => $characteristics]);
+    $characteristics = Characteristic::where('productID', $productID)->get();
+    return view('characteristics.index', ['characteristics' => $characteristics, 'productID' => $productID]);
     }
 
     public function create()
@@ -20,11 +20,11 @@ class CharacteristicsController extends Controller
 
     public function store(Request $request)
     {
-        $characteristic = new Characteristic();
-        $characteristic->productID = $request->productID;
-        $characteristic->characteristicName = $request->characteristicName;
-        $characteristic->save();
-        return redirect()->route('characteristics.index');
+    $characteristic = new Characteristic();
+    $characteristic->productID = $request->productID;
+    $characteristic->characteristicName = $request->characteristicName;
+    $characteristic->save();
+    return redirect()->route('characteristics.index', ['productID' => $request->productID]);
     }
 
     public function show($id)

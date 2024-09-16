@@ -33,6 +33,7 @@
                                         <p class="text-white">Stock: {{ $product->stock }}</p>
                                         <p class="text-white">Descripción: {{ $product->description }}</p>
                                         <div class="d-flex justify-content-end">
+                                            <a href="{{ route('characteristics.index', ['productID' => $product->id]) }}" class="btn btn-warning me-2">Añadir Característica</a>
                                             <a href="{{ route('products.edit', $product) }}" class="btn btn-warning me-2">Editar</a>
                                             <form action="{{ route('products.destroy', $product) }}" method="POST">
                                                 @csrf
@@ -84,11 +85,11 @@
                                 <div class="mb-3">
                                     <label for="categID" class="form-label">Categoría</label>
                                     <select class="form-select" id="categID" name="categID">
-                                        <option value="">Selecciona una categoría</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
                                         @endforeach
                                     </select>
+                                    <a href="{{ route('categories.index') }}" class="btn btn-secondary mt-2">Añadir Categoría</a>
 
                                 </div>
 

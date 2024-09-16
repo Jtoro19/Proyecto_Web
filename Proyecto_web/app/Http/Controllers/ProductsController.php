@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Address;
+use App\Models\Characteristic;
 use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
