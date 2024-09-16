@@ -22,6 +22,7 @@
                         <th scope="col">Código de la factura</th>
                         <th scope="col">Precio total</th>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,9 @@
                     <td>{{$receipt->id}}</td>
                     <td>{{$receipt->totalPrice}}</td>
                     <td>{{$receipt->date}}</td>
+                    <td>
+                        <a href="{{ route('items.index', ['receiptID' => $receipt->id]) }}" class="btn btn-info btn-sm">Items asociados</a>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

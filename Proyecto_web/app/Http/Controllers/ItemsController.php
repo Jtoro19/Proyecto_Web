@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Receipt;
 
 class ItemsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::all();
-        return view('items.index', ['items' => $items]);
+    // Filtrar los ítems por el ID de la factura (receiptID)
+    $receiptID = $request->query('receiptID');
+    
+    // Si se pasa un receiptID, solo obtener los ítems de esa factura
+    if ($receiptID) {
+        $items = Item::where('receiptID', $receiptID)->get();
+    } else {
+        $items = Item::all(); // Si no, mostrar todos los ítems
     }
 
+    return view('items.index', ['items' => $items]);
+    }
     public function create()
     {
         return view('');

@@ -334,4 +334,18 @@ footer {
     color: white;
 }
 
+.bg-gray {
+    background-color: #3a3a3a;
+}
+
+.btn-custom {
+    background-color: #7d2181;
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #5a0e60;
+    color: white;
+}
 
