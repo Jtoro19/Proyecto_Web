@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -44,6 +45,19 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phoneNumber' => 'required|string|max:15',
             'password' => 'required|string|min:8|confirmed',
+            'g-recaptcha-response' => function ($atribute, $value, $fail) {
+                $secretKey = config('services.recaptcha.secret');
+                $response = $value;
+                $userIp = $_SERVER['REMOTE_ADDR'];
+                $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$response&remoteip=$userIp";
+                $response = file_get_contents($url);
+                $response = json_decode($response);
+                if (!$response->success) {
+                    Session::flash('g-recaptcha-response', 'Por favor marcar el recaptcha');
+                    Session::flash('alert-class', 'alert-danger');
+                    return $fail('Por favor marcar el recaptcha');
+                }
+            },
         ]);
     }
 
