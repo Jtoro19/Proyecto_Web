@@ -1,22 +1,11 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>newUsers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html>
-<head>
     <title>Reporte de Usuarios Nuevos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
         table {
             width: 100%;
@@ -44,15 +33,17 @@
                 <th>Nickname</th>
                 <th>Email</th>
                 <th>Rol</th>
+                <th>Phone Number</th>
             </tr>
         </thead>
         <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->userName }}</td>
                     <td>{{ $user->nickname }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->role->name }}</td>
+                    <td>{{ $user->roleID }}</td>
+                    <td>{{ $user->phoneNumber }}</td>
                 </tr>
             @endforeach
         </tbody>

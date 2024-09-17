@@ -128,3 +128,9 @@ Route::get('/shipments/info/{id}', [ShipmentsController::class, 'show'])->name('
 
 
 Route::get('/reportsU/administrator/monthNewUsersPDF', [UsersController::class, 'reportUsersPDF'])->name('reportsU.administrator.monthNewUsersPDF');
+
+Route::get('/reportsU/administrator/reportsMenu', function() {
+    return view('/reportsU/administrator/reportsMenu');
+})->name('reportsU.administrator.reportsMenu');
+
+Route::get('/reportsU/administrator/yearNewUsersPDF', [UsersController::class, 'reportUsersPDFYear'])->name('reportsU.administrator.yearNewUsersPDF');
