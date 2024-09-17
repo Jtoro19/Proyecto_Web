@@ -20,6 +20,7 @@
                     <div class="d-flex flex-column align-items-stretch">
                         <a href="{{ route('reportsU.administrator.monthNewUsersPDF') }}" class="btn btn-custom mb-3">Reportes de nuevos usuarios (mes)</a>
                         <a href="{{route ('reportsU.administrator.yearNewUsersPDF')}}" class="btn btn-custom mb-3">Reportes de nuevos usuarios (año)</a>
+                        <a href="{{ route('reportsU.administrator.graph') }}" class="btn btn-custom mb-3">grafica de nuevos usuarios (año)</a>
                     </div>
                 </div>
             </div>

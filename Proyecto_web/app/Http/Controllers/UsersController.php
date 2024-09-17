@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -118,4 +119,23 @@ class UsersController extends Controller
         return $pdf->download('yearNewUsersPDF_' . now()->format('Y_m') . '.pdf');
     }
     
+    public function reportUsersPDFMonth(Request $request)
+    {
+        $usersByMonth = User::select(DB::raw('MONTH(created_at) as month'), DB::raw('COUNT(*) as count'))
+            ->whereYear('created_at', now()->year)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->orderBy('month')
+            ->get();
+
+        // Crear las etiquetas para los meses y los datos para el gráfico
+        $chartLabels = $usersByMonth->pluck('month')->map(function($month) {
+            return \DateTime::createFromFormat('!m', $month)->format('F');  // Convertir el número de mes al nombre del mes
+        });
+
+        $chartData = $usersByMonth->pluck('count');  // Número de usuarios por mes
+
+        // Pasar los datos a la vista
+        return view('reportsU.administrator.graph', compact('chartLabels', 'chartData'));
+    }
+
 }
