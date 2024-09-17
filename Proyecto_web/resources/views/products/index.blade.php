@@ -69,12 +69,12 @@
                 
                                 <div class="mb-3">
                                     <label for="price" class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto">
+                                    <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" oninput="this.value = Math.max(0, this.value)">
                                 </div>
                 
                                 <div class="mb-3">
                                     <label for="stock" class="form-label">Cantidad Disponible</label>
-                                    <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible">
+                                    <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" oninput="this.value = Math.max(0, this.value)">
                                 </div>
                 
                                 <div class="mb-3">

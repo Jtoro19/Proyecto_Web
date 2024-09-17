@@ -10,7 +10,7 @@
 </head>
 <body>
     @include('partials.topheader')
-    <form action="{{ route('receipts.store') }}" method="POST">
+    <form id="purchaseForm" action="{{ route('receipts.store') }}" method="POST">
         @csrf
         <input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>">
         <input type="hidden" name="totalPrice" id="hiddenTotalPrice" value="{{ number_format($product->price, 2) }}">
@@ -36,7 +36,7 @@
 
                                     <div class="mb-3">
                                         <label for="quantity" class="form-label text-white">Cantidad</label>
-                                        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1" data-price="{{ $product->price }}" onchange="updateTotalPrice({{ $product->price }})">
+                                        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1" data-price="{{ $product->price }}" oninput="if(this.value < 1) this.value = 1;" onchange="updateTotalPrice({{ $product->price }})">
                                     </div>
 
                                     <h5>Total: <span class="text-success" id="totalPrice">${{ number_format($product->price, 2) }}</span></h5>
@@ -48,7 +48,7 @@
                             <div class="mb-4">
                                 <h5 class="text-white">Seleccionar Dirección</h5>
                                 <div class="form-group mb-3">
-                                    <select class="form-select" name="addressID">
+                                    <select class="form-select" name="addressID" id="addressID">
                                         @foreach($addresses as $address)
                                             @if($address->able)
                                                 <option value="{{ $address->id }}">{{ $address->addressName }}</option>
@@ -84,12 +84,12 @@
         </div>
     </form>
 
-
-
     @include('partials.footer')
 
     <script src="{{ asset('js/script.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

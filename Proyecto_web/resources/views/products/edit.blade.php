@@ -27,12 +27,12 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" value="{{ $product->price }}">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" value="{{ $product->price }}" oninput="this.value = Math.max(0, this.value)">
                     </div>
 
                     <div class="mb-3">
                         <label for="stock" class="form-label">Cantidad Disponible</label>
-                        <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" value="{{ $product->stock }}">
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" value="{{ $product->stock }}" oninput="this.value = Math.max(0, this.value)">
                     </div>
 
                     <div class="mb-3">
@@ -43,7 +43,6 @@
                     <div class="mb-3">
                         <label for="categID" class="form-label">Categoría</label>
                         <select class="form-select" id="categID" name="categID">
-                            <option value="">Selecciona una categoría</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
                             @endforeach

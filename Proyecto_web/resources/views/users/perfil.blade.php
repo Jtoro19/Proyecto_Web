@@ -64,8 +64,8 @@
         </div>
         
         <div class="profile-actions mt-4">
-            <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Editar</a>
-            <form method="POST" action="{{route('users.destroy', $user->id)}}" style="display: inline">
+            <a class="btn btn-primary" href="{{ route('users.editProfile', $user->id) }}">Editar</a>
+            <form method="POST" action="{{route('users.destroyProfile', $user->id)}}" style="display: inline">
                 @csrf
                 @method('DELETE')    
                 <button class="btn btn-danger">Borrar cuenta</button>

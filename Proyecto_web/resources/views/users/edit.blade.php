@@ -8,7 +8,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('partials.topheader')
+    @include('partials.topheaderManage')
 
     <div class="row justify-content-center">
         <div class="col-md-6">

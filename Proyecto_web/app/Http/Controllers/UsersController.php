@@ -84,6 +84,7 @@ class UsersController extends Controller
         return redirect()->route('users.index');
     }
 
+
     public function destroy($id)
     {
         $user = User::find($id);
@@ -137,5 +138,36 @@ class UsersController extends Controller
         // Pasar los datos a la vista
         return view('reportsU.administrator.graph', compact('chartLabels', 'chartData'));
     }
+
+
+
+    public function editProfile($id)
+    {
+        $user = User::find($id);
+        return view('users.editProfile', ['user' => $user]);
+    }
+
+    public function updateProfile(Request $request, $id)
+    {
+        $user = user::find($id);
+        //$User->roleID = $request->roleID;
+        $user->userName = $request->userName;
+        $user->nickname = $request->nickname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->save();
+        return redirect()->route('users.info', ['id' => $id]);
+    }
+
+    public function destroyProfile($id)
+    {
+        $user = User::find($id);
+        $user->able=0;
+        $user->save();
+        return redirect()->route('inicio');
+    }
+
+
 
 }
