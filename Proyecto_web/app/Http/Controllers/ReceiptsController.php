@@ -65,21 +65,26 @@ class ReceiptsController extends Controller
 
     public function showInfo($id)
     {
-        // Buscar el recibo por ID
         $receipt = Receipt::find($id);
     
-        // Verificar si el recibo existe
         if (!$receipt) {
             return redirect()->route('receipts.index')->with('error', 'Recibo no encontrado.');
         }
     
-        // Buscar el ítem asociado
         $item = Item::where('receiptID', $receipt->id)->first();
     
-        // Buscar el envío asociado
         $shipment = Shipment::where('receiptID', $receipt->id)->first();
     
         return view('receipts.info', ['receipt' => $receipt, 'item' => $item, 'shipment' => $shipment]);
+    }
+
+    public function receiptPDF($id)
+    {
+        set_time_limit(300);
+
+        $receipt=Receipt::find($id);
+        $pdf = \PDF::loadView('reportsU.users.downloadReceiptPDF', compact('receipt'));
+        return $pdf->download('receipt.pdf');
     }
 }
 

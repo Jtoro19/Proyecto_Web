@@ -91,6 +91,22 @@ Route::middleware(['role:administrador'])->group(function () {
 });
 
 
+Route::get('/shipments/index', [ShipmentsController::class, 'index'])->name('shipments.index');
+Route::post('/shipments', [ShipmentsController::class, 'store'])->name('shipments.store');
+Route::get('/shipments/info/{id}', [ShipmentsController::class, 'show'])->name('shipments.show');
+
+
+Route::get('/reportsU/administrator/monthNewUsersPDF', [UsersController::class, 'reportUsersPDF'])->name('reportsU.administrator.monthNewUsersPDF');
+
+Route::get('/reportsU/administrator/reportsMenu', function() {
+    return view('/reportsU/administrator/reportsMenu');
+})->name('reportsU.administrator.reportsMenu');
+
+Route::get('/reportsU/administrator/yearNewUsersPDF', [UsersController::class, 'reportUsersPDFYear'])->name('reportsU.administrator.yearNewUsersPDF');
+
+Route::get('/reportsU/users/downloadReceiptPDF/{id}', [ReceiptsController::class, 'receiptPDF'])->name('reportsU.users.downloadReceiptPDF');
+
+Route::get('/reportsU/administrator/graph', [UsersController::class, 'reportUsersPDFMonth'])->name('reportsU.administrator.graph');
 Route::middleware(['role:administrador'])->group(function () {
     Route::get('/receipts/index', [ReceiptsController::class, 'index'])->name('receipts.index');
     Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.store');
