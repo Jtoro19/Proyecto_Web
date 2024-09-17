@@ -32,7 +32,7 @@
 
             </div>
             <div class="card-footer text-end">
-                <a href="#" class="btn btn-primary">Descargar Recibo</a>
+                <a href="{{route('reportsU.users.downloadReceiptPDF',$receipt->id)}}" class="btn btn-primary">Descargar Recibo</a>
             </div>
         </div>
     </div>

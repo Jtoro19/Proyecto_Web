@@ -134,3 +134,5 @@ Route::get('/reportsU/administrator/reportsMenu', function() {
 })->name('reportsU.administrator.reportsMenu');
 
 Route::get('/reportsU/administrator/yearNewUsersPDF', [UsersController::class, 'reportUsersPDFYear'])->name('reportsU.administrator.yearNewUsersPDF');
+
+Route::get('/reportsU/users/downloadReceiptPDF/{id}', [ReceiptsController::class, 'receiptPDF'])->name('reportsU.users.downloadReceiptPDF');
