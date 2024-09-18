@@ -20,10 +20,7 @@ class User extends Authenticatable
         'able',
     ];
 
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
+    // Removed duplicate role method
 
     protected $hidden = [
         'password',
