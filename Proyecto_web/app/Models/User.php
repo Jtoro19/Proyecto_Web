@@ -20,8 +20,6 @@ class User extends Authenticatable
         'able',
     ];
 
-    // Removed duplicate role method
-
     protected $hidden = [
         'password',
         'remember_token',
