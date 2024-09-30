@@ -141,16 +141,16 @@ Route::middleware(['role:vendedor'])->group(function () {
 });
 
 
-Route::middleware(['role:vendedor'])->group(function () {
+// Route::middleware(['role:vendedor'])->group(function () {
 
-    Route::get('/categories/index', [CategoriesController::class, 'index'])->name('categories.index');
-    Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
-    Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
-    Route::put('categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
-    Route::delete('/categories/{id}',[CategoriesController::class,'destroy'])->name('categories.destroy');
+//     Route::get('/categories/index', [CategoriesController::class, 'index'])->name('categories.index');
+//     Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
+//     Route::get('categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
+//     Route::put('categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
+//     Route::delete('/categories/{id}',[CategoriesController::class,'destroy'])->name('categories.destroy');
     
 
-});
+// });
 
 
 
