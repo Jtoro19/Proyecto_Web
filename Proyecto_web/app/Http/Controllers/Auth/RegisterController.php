@@ -12,6 +12,12 @@ use Session;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        // Middleware para asegurar que solo usuarios invitados accedan al registro
+        $this->middleware('guest');
+    }
+
     public function showRegistrationForm()
     {
         // Fetch roles from the database
@@ -23,17 +29,24 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        // Validate the request
+        // Validar la solicitud
         $this->validator($request->all())->validate();
 
-        // Create the user
+        // Crear el usuario
         $user = $this->create($request->all());
 
-        // Log the user in
+        // Loguear al usuario
         auth()->login($user);
 
-        // Redirect to the intended page
-        return redirect()->intended('home');
+        // Guardar el rol del usuario en la sesión
+        if ($user->role) {
+            session(['roleName' => $user->role->roleName]);
+        } else {
+            session(['roleName' => 'sin rol']);
+        }
+
+        // Redirigir a la página 'iniciologin' en lugar de 'home'
+        return redirect()->intended('iniciologin');
     }
 
     protected function validator(array $data)
@@ -61,26 +74,9 @@ class RegisterController extends Controller
         ]);
     }
 
-    // public function store(Request $request)
-    // {
-    //     $user = new User();
-    //     $user->roleID = $request->roleID;
-    //     $user->userName = $request->userName;
-    //     $user->nickname = $request->nickname;
-    //     $user->email = $request->email;
-    //     $user->password = $request->password;
-    //     $user->phoneNumber = $request->phoneNumber;
-    //     $user->able=1;
-    //     $user->save();
-    //     return redirect()->route('users.index');
-    // }
-
-
-
     protected function create(array $data)
     {
         return User::create([
-            
             'roleID' => $data['roleID'],
             'userName' => $data['userName'],
             'nickname' => $data['nickname'],
