@@ -10,8 +10,10 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        return Category::all();
+    $categories = Category::where('able', 1)->get();
+    return $categories;
     }
+
 
     public function store(Request $request)
     {
@@ -31,7 +33,9 @@ class CategoriesController extends Controller
 
     public function destroy(Category $category)
     {
-        $category->delete();
-        return response()->json(['message' => 'The category successfully deleted'], 200);
+    $category->able = 0;
+    $category->save();
+    
+    return response()->json(['message' => 'The category has been successfully deactivated'], 200);
     }
 }
