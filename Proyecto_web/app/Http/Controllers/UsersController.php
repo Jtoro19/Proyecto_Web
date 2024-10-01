@@ -87,10 +87,24 @@ class UsersController extends Controller
 
     public function destroy($id)
     {
+        // Encuentra al usuario por su ID
         $user = User::find($id);
-        $user->able=0;
+        
+        // Deshabilita el usuario
+        $user->able = 0;
         $user->save();
-        return redirect()->route('users.index');
+    
+        // Verifica si el usuario eliminado es el mismo que está autenticado
+        if (Auth::check() && Auth::id() == $user->id) {
+            // Cierra la sesión del usuario autenticado
+            Auth::logout();
+    
+            // Redirige a la página de inicio después de cerrar la sesión
+            return redirect()->route('inicio')->with('status', 'Tu cuenta ha sido desactivada.');
+        }
+    
+        // Redirige al índice de usuarios si no es el usuario autenticado
+        return redirect()->route('users.index')->with('status', 'El usuario ha sido desactivado.');
     }
 
     public function reportUsersPDF()
@@ -122,6 +136,7 @@ class UsersController extends Controller
     
     public function reportUsersPDFMonth(Request $request)
     {
+        set_time_limit(300);
         $usersByMonth = User::select(DB::raw('MONTH(created_at) as month'), DB::raw('COUNT(*) as count'))
             ->whereYear('created_at', now()->year)
             ->groupBy(DB::raw('MONTH(created_at)'))
