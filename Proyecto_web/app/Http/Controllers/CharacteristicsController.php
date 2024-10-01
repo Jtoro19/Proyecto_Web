@@ -50,7 +50,13 @@ class CharacteristicsController extends Controller
     public function destroy($id)
     {
         $characteristic = Characteristic::find($id);
-        $characteristic->delete();
-        return redirect()->route('characteristics.index');
+        if ($characteristic) {
+            $productID = $characteristic->productID; // Obtiene el ID del producto asociado
+            $characteristic->delete();
+            return redirect()->route('characteristics.index', ['productID' => $productID]); // Redirige al índice de características con el ID del producto
+        }
+    
+        return redirect()->route('characteristics.index')->with('error', 'Característica no encontrada');
     }
+    
 }
