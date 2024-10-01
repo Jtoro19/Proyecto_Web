@@ -163,10 +163,18 @@ class UsersController extends Controller
     public function destroyProfile($id)
     {
         $user = User::find($id);
-        $user->able=0;
+        
+        // Deshabilitar el usuario
+        $user->able = 0;
         $user->save();
+    
+        // Cerrar la sesión del usuario autenticado
+        Auth::logout();
+    
+        // Redirigir a la página de inicio
         return redirect()->route('inicio');
     }
+    
 
 
 
