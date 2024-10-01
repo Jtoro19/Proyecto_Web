@@ -107,18 +107,20 @@ Route::get('/reportsU/administrator/yearNewUsersPDF', [UsersController::class, '
 Route::get('/reportsU/users/downloadReceiptPDF/{id}', [ReceiptsController::class, 'receiptPDF'])->name('reportsU.users.downloadReceiptPDF');
 
 Route::get('/reportsU/administrator/graph', [UsersController::class, 'reportUsersPDFMonth'])->name('reportsU.administrator.graph');
+
 Route::middleware(['role:administrador'])->group(function () {
     Route::get('/receipts/index', [ReceiptsController::class, 'index'])->name('receipts.index');
-    Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.store');
 });
 
 Route::middleware(['role:administrador'])->group(function () {
     Route::get('/items/index', [ItemsController::class, 'index'])->name('items.index');
     Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
-    Route::get('/receipts/info/{id}', [ReceiptsController::class, 'showInfo'])->name('receipts.info');
 });
 
-// Espacio reportes
+Route::middleware(['role:administrador|comprador'])->group(function () {
+    Route::post('/receipts', [ReceiptsController::class, 'store'])->name('receipts.store');
+    Route::get('/receipts/info/{id}', [ReceiptsController::class, 'showInfo'])->name('receipts.info');
+});
 
 
 Route::middleware(['role:vendedor|comprador'])->group(function () {
