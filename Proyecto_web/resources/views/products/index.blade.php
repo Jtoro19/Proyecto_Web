@@ -89,7 +89,7 @@
                                             <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
                                         @endforeach
                                     </select>
-                                    <a href="{{ route('categories.index') }}" class="btn btn-secondary mt-2">Añadir Categoría</a>
+                                    <a href="http://localhost:{{ env('REACT_APP_PORT') }}" class="btn btn-secondary mt-2" target="_blank">Añadir Categoría</a>
 
                                 </div>
 
