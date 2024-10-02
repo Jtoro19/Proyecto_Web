@@ -22,22 +22,22 @@
 
                     <div class="mb-3">
                         <label for="productName" class="form-label">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="productName" name="productName" placeholder="Ingresa el nombre del producto" value="{{ $product->productName }}">
+                        <input type="text" class="form-control" id="productName" name="productName" placeholder="Ingresa el nombre del producto" value="{{ $product->productName }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" value="{{ $product->price }}" oninput="this.value = Math.max(0, this.value)">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" value="{{ $product->price }}" oninput="this.value = Math.max(0, this.value)" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="stock" class="form-label">Cantidad Disponible</label>
-                            <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" value="{{ $product->stock }}" oninput="this.value = Math.max(0, this.value)">
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" value="{{ $product->stock }}" oninput="this.value = Math.max(0, this.value)" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Descripción</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción del producto">{{ $product->description }}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción del producto" required>{{ $product->description }}</textarea>
                     </div>
 
                     <div class="mb-3">

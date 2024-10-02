@@ -21,12 +21,12 @@
                     
                     <div class="mb-3">
                         <label for="addressName" class="form-label">Nombre de la Dirección</label>
-                        <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Ingresa el nombre de la dirección" value="{{ $address->addressName }}">
+                        <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Ingresa el nombre de la dirección" value="{{ $address->addressName }}" required>
                     </div>
     
                     <div class="mb-3">
                         <label for="information" class="form-label">Información Adicional</label>
-                        <textarea class="form-control" id="information" name="information" rows="4" placeholder="Ingresa información adicional">{{ $address->information }}</textarea>
+                        <textarea class="form-control" id="information" name="information" rows="4" placeholder="Ingresa información adicional" required>{{ $address->information }}</textarea>
                     </div>
     
                     <button type="submit" class="btn btn-primary w-100">Modificar</button>

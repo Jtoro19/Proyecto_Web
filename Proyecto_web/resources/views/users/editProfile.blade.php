@@ -19,22 +19,22 @@
     
                 <div class="mb-3">
                     <label for="userName" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="userName" name="userName" placeholder="Ingresa el nombre" value="{{ $user->userName }}">
+                    <input type="text" class="form-control" id="userName" name="userName" placeholder="Ingresa el nombre" value="{{ $user->userName }}" required>
                 </div>
     
                 <div class="mb-3">
                     <label for="nickname" class="form-label">Nombre de Usuario</label>
-                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Ingresa el nombre de usuario" value="{{ $user->nickname }}">
+                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Ingresa el nombre de usuario" value="{{ $user->nickname }}" required>
                 </div>
     
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa el email" value="{{ $user->email }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa el email" value="{{ $user->email }}" required>
                 </div>
     
                 <div class="mb-3">
                     <label for="phoneNumber" class="form-label">Número de Teléfono</label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Ingresa el número de teléfono" value="{{ $user->phoneNumber }}">
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Ingresa el número de teléfono" value="{{ $user->phoneNumber }}" pattern="[0-9]+" title="Por favor, ingresa solo números positivos." required>
                 </div>
     
                 <!-- Campo oculto para mantener el valor de la contraseña -->

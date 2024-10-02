@@ -64,22 +64,22 @@
                                 
                                 <div class="mb-3">
                                     <label for="productName" class="form-label">Nombre del Producto</label>
-                                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Ingresa el nombre del producto">
+                                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Ingresa el nombre del producto" required>
                                 </div>
                 
                                 <div class="mb-3">
                                     <label for="price" class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" oninput="this.value = Math.max(0, this.value)">
+                                    <input type="number" class="form-control" id="price" name="price" placeholder="Ingresa el precio del producto" oninput="this.value = Math.max(0, this.value)" required>
                                 </div>
                 
                                 <div class="mb-3">
                                     <label for="stock" class="form-label">Cantidad Disponible</label>
-                                    <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" oninput="this.value = Math.max(0, this.value)">
+                                    <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingresa la cantidad disponible" oninput="this.value = Math.max(0, this.value)" required>
                                 </div>
                 
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Descripción</label>
-                                    <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción del producto"></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingresa la descripción del producto" required></textarea>
                                 </div>
 
                                 <div class="mb-3">

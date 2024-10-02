@@ -58,12 +58,12 @@
                     
                     <div class="mb-3">
                         <label for="addressName" class="form-label">Nombre de la Dirección</label>
-                        <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Ingresa el nombre de la dirección">
+                        <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Ingresa el nombre de la dirección" required>
                     </div>
     
                     <div class="mb-3">
                         <label for="information" class="form-label">Información Adicional</label>
-                        <textarea class="form-control" id="information" name="information" rows="4" placeholder="Ingresa información adicional"></textarea>
+                        <textarea class="form-control" id="information" name="information" rows="4" placeholder="Ingresa información adicional" required></textarea>
                     </div>
     
                     <button type="submit" class="btn btn-primary w-100">Crear Dirección</button>

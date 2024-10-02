@@ -59,7 +59,7 @@
                         
                         <div class="mb-3">
                             <label for="characteristicName" class="form-label">Nombre de la Característica</label>
-                            <input type="text" class="form-control" id="characteristicName" name="characteristicName" placeholder="Ingresa el nombre de la característica">
+                            <input type="text" class="form-control" id="characteristicName" name="characteristicName" placeholder="Ingresa el nombre de la característica" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Crear Característica</button>
                     </form>
